@@ -13,7 +13,6 @@
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		
 		
-		<script src = "defaultParams.js"></script>
 		<script src = "fitnessFunctionList.js"></script>
 		<script src = "dsaPhases.js"></script>		
 	</head>
@@ -21,39 +20,70 @@
 		<div class="row" id="headermain">
 		</div>
 		<div class="row">
-			<div class="col s3">Params</div>
-			<div class="col s4">Graphics</div>
-			<div class="col s3">Results</div>
+			<div class="col s3"><b>Params</b></div>
+			<div class="col s4"><b>Graphics</b></div>
+			<div class="col s3"><b>Phases</b></div>
 		</div>
 		<div class="row">
 			<div class="col s3">
-				<input placeholder="dolphinNumbers" id="dolphinNumbers" type="text" class="validate">
-				<input placeholder="fitnessFunction" id="fitnessFunction" type="text" class="validate">
-				<input placeholder="dimensionalSpaceMax" id="dimensionalSpaceMax" type="text" class="validate">
-				<input placeholder="dimensionalSpaceMin" id="dimensionalSpaceMin" type="text" class="validate">
-				<input placeholder="iteration" id="iteration" type="text" class="validate">
-				<input placeholder="mDirection" id="mDirection" type="text" class="validate">
-				<input placeholder="time" id="time" type="text" class="validate">
-				<input placeholder="maxFitnessValue" id="maxFitnessValue" type="text" class="validate">
-				<input placeholder="maximumSearchTime" id="maximumSearchTime" type="text" class="validate">
+				<div class="row">
+					<div class="col s12">
+						Number of dolphins
+						<div class="input-field inline">
+							<input placeholder="dolphinNumbers" id="dsaDolphinNumbers" type="text" class="validate">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						Fitness function
+						<div class="input-field inline">
+							<input placeholder="fitnessFunction" id="dsaFitnessFunction" type="text" class="validate">
+						</div>
+					</div>
+				</div>
 				
 				
+				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
+				<input placeholder="dimensionalSpaceMax" id="dsaDimensionalSpaceMax" type="text" class="validate">
+				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
+				<input placeholder="dimensionalSpaceMin" id="dsaDimensionalSpaceMin" type="text" class="validate">
+				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
+				<input placeholder="iteration" id="dsaIteration" type="text" class="validate">
+				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
+				<input placeholder="mDirection" id="dsaMDirection" type="text" class="validate">
+				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
+				<input placeholder="speed" id="dsaSpeed" type="text" class="validate">
+				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
+				<input placeholder="time" id="dsaTime" type="text" class="validate">
+				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
+				<input placeholder="maxFitnessValue" id="dsaMaxFitnessValue" type="text" class="validate">
+				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
+				<input placeholder="maximumSearchTime" id="dsaMaximumSearchTime" type="text" class="validate">
 				
-				<input placeholder="dolphinsText" id="dolphinsText" type="text" class="validate">
 			</div>
 			<div class="col s4">
-				<canvas id="canvas"  style="border:1px solid #000000;"></canvas>
-				<canvas id="canvasy"  style="border:1px solid #000000;"></canvas></br>
-				<canvas id="canvasx"  style="border:1px solid #000000;"></canvas>
-				
+				<div class="row">
+					<canvas id="canvas"  style="border:1px solid #000000;"></canvas>
+					<canvas id="canvasy"  style="border:1px solid #000000;"></canvas></br>
+					<canvas id="canvasx"  style="border:1px solid #000000;"></canvas>
+				</div>
 			</div>
 			
-			<div class="col s3">
-				<input type="button" value="SearchPhase" onclick="searchPhase()">
+			<div class="col s3">				
+				<div class="row">					
+					<a class="waves-effect waves-light btn" onclick="searchPhase()">Search Phase</a>
+				</div>
+				<div class="row">
+					<div class="col s3"><b>Results</b></div>
+				</div>
+				<input placeholder="dolphinsText" id="dolphinsText" type="text" class="validate">
+				
 			</div>
 		</div>
 	
 		
 	</body>
-<script src = "render.js"></script>
+	<script src = "defaultParams.js"></script>
+	<script src = "render.js"></script>
 <html>

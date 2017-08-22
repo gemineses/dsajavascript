@@ -37,10 +37,10 @@
 		}
 		
 	};
-	ctx.ruler(dimensionalSpaceMax, dimensionalSpaceMin, "x");
-	ctx.ruler(dimensionalSpaceMax, dimensionalSpaceMin, "y");
+	ctx.ruler(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin, "x");
+	ctx.ruler(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin, "y");
 	ctx.setDolphins = function(dolphins){
-		diff = dimensionalSpaceMax[0]-dimensionalSpaceMin[0];
+		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		
 		for(i=0; i<dolphins.length; i++){
@@ -55,7 +55,7 @@
 	};
 	
 	ctx.setK = function(dolK){
-		diff = dimensionalSpaceMax[0]-dimensionalSpaceMin[0];
+		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		
 		for(i=0; i<dolK.length; i++){
