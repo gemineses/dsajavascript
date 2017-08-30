@@ -5,3 +5,7 @@
     height: 10px;
     line-height: 56px;
 }
+
+.inputSmall{
+	height: 1rem !important;
+}
