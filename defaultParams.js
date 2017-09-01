@@ -2,7 +2,7 @@
 dsaDolphinNumbers = 3;
 //fitnessFunction = x(:,1).^2+x(:,2).^2;
 fitnessSelected="3";
-dsaDimensionalSpaceMax = [5,5];
+dsaDimensionalSpaceMax = [4,5];
 dsaDimensionalSpaceMin = [-5,-5];
 dsaIteration = 20;
 dsaMDirection = 3;
@@ -23,3 +23,7 @@ document.getElementById("dsaSpeed").value=dsaSpeed;
 document.getElementById("dsaTime").value=dsaTime;
 document.getElementById("dsaMaxFitnessValue").value=dsaMaxFitnessValue;
 document.getElementById("dsaMaximumSearchTime").value=dsaMaximumSearchTime;
+
+fitnessFunctionList = [1,2,3,4,5,6,7,8,9,10];
+
+console.log(fitnessFunctionList);

@@ -14,9 +14,14 @@
 	ctx.ruler = function (dimMax, dimMin, pos) {
 		diff = dimMax[0]-dimMin[0];
 		div = diff/10;
+		console.log(div);
 		if(pos=="x"){
 			actual=dimMin[0];
+			
 			for(i=0; i<10; i++){
+				console.log(actual);
+				actual2=parseInt(actual.toFixed(4));
+				console.log(parseInt(actual));
 				ctxx.font = "15px Arial";
 				ctxx.fillText(actual,40*i,15);
 				ctxx.moveTo(40*i,0);
