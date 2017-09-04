@@ -2,7 +2,7 @@
 dsaDolphinNumbers = 3;
 //fitnessFunction = x(:,1).^2+x(:,2).^2;
 fitnessSelected="3";
-dsaDimensionalSpaceMax = [4,5];
+dsaDimensionalSpaceMax = [5,5];
 dsaDimensionalSpaceMin = [-5,-5];
 dsaIteration = 20;
 dsaMDirection = 3;

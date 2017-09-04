@@ -1,4 +1,7 @@
 
+	/*
+	Main Canvas and rulers settings
+	*/
 	var canvasx = document.getElementById('canvasx');
 	canvasx.width = 400;
 	canvasx.height = 20;
@@ -11,10 +14,17 @@
 	var ctxx = canvasx.getContext('2d');
 	var ctxy = canvasy.getContext('2d');
 	var ctx = canvas.getContext('2d');
+	
+	
+	
+	/*
+		Ruler function, (Dimention Max, Dimention Min, Axys)
+		Paint the number and line with the 10% per division
+	*/
 	ctx.ruler = function (dimMax, dimMin, pos) {
 		diff = dimMax[0]-dimMin[0];
 		div = diff/10;
-		console.log(div);
+		
 		if(pos=="x"){
 			actual=dimMin[0];
 			
@@ -42,8 +52,16 @@
 		}
 		
 	};
+	
 	ctx.ruler(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin, "x");
 	ctx.ruler(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin, "y");
+	
+	
+	
+	/*
+		Set dolphins functions (Dolphins object)
+		Paint the dolphins in the canvas
+	*/
 	ctx.setDolphins = function(dolphins){
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
@@ -59,6 +77,11 @@
 		
 	};
 	
+	
+	/*
+		Set K(neightboorhood) echo from dolphins ecolocations
+		
+	*/
 	ctx.setK = function(dolK){
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
@@ -80,8 +103,11 @@
 		
 	};
 	
+	
+	/*
+		Clean the canvas
+	*/
 	ctx.Clear = function () {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 	};
 	ctx.Clear();
-
