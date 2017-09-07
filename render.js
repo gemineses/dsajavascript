@@ -68,6 +68,7 @@
 		
 		for(i=0; i<dolphins.length; i++){
 			ctx.beginPath();
+			console.log(dolphins);
 			console.log(dolphins[i].individual);
 			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
 			ctx.arc(((dolphins[i].dolp[0])*div)+200,(((dolphins[i].dolp[1]*div))*-1)+200,5,0,2*Math.PI);
@@ -107,7 +108,7 @@
 	/*
 		Clean the canvas
 	*/
-	ctx.Clear = function () {
+	ctx.clear = function () {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 	};
-	ctx.Clear();
+	ctx.clear();

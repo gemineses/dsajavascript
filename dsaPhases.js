@@ -25,7 +25,10 @@ function createDolphins(){
 
 	for(y = 0; y < dsaDimensionalSpaceMin.length; y++){
 		//creating dimensions for dolphin
-		dolp.dolp.push((Math.random() * dsaDimensionalSpaceMax[0]) + dsaDimensionalSpaceMin[0]);
+		//dolp Position, in Y iteration, each iteration its an dimensional space(search var) (x,y,z...)
+		dolpPos = (Math.random() * (dsaDimensionalSpaceMax[y]-dsaDimensionalSpaceMin[y])) + dsaDimensionalSpaceMin[y];
+		dolp.dolp.push(dolpPos);
+		
 	}
 
 	//creatingIndividualOptimalSolution
@@ -35,6 +38,7 @@ function createDolphins(){
 	dolp.neighborhood.push(fitnessFunction(dolp.dolp));
 		dolphins.push(dolp);
 	}
+	ctx.clear();
 	ctx.setDolphins(dolphins);
 }
 
