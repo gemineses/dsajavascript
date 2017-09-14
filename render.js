@@ -26,10 +26,10 @@
 		div = diff/10;
 		
 		if(pos=="x"){
-			actual=dimMin[0];
+			actual=parseFloat(dimMin[0]);
 			
 			for(i=0; i<10; i++){
-				console.log(actual);
+				
 				actual2=parseInt(actual.toFixed(4));
 				console.log(parseInt(actual));
 				ctxx.font = "15px Arial";

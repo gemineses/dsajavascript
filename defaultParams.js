@@ -2,8 +2,12 @@
 dsaDolphinNumbers = 3;
 //fitnessFunction = x(:,1).^2+x(:,2).^2;
 fitnessSelected="3";
-dsaDimensionalSpaceMax = [5,5];
-dsaDimensionalSpaceMin = [-5,-5];
+
+dsaDimensionalSpaceMax = "5,5";
+dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
+dsaDimensionalSpaceMin = "-5,-5";
+dsaDimensionalSpaceMin = dsaDimensionalSpaceMin.split(",");
+
 dsaIteration = 20;
 dsaMDirection = 3;
 dsaSpeed = 1;
@@ -26,4 +30,15 @@ document.getElementById("dsaMaximumSearchTime").value=dsaMaximumSearchTime;
 
 fitnessFunctionList = [1,2,3,4,5,6,7,8,9,10];
 
-console.log(fitnessFunctionList);
+function updateParams(){
+	dsaDolphinNumbers = document.getElementById("dsaDolphinNumbers").value;
+	fitnessSelected = document.getElementById("dsaFitnessFunction").value;
+	dsaDimensionalSpaceMax = document.getElementById("dsaDimensionalSpaceMax").value;
+	dsaDimensionalSpaceMin = document.getElementById("dsaDimensionalSpaceMin").value;
+	dsaIteration = document.getElementById("dsaIteration").value;
+	dsaMDirection = document.getElementById("dsaMDirection").value;
+	dsaSpeed = document.getElementById("dsaSpeed").value;
+	dsaTime = document.getElementById("dsaTime").value;
+	dsaMaxFitnessValue = document.getElementById("dsaMaxFitnessValue").value;
+	dsaMaximumSearchTime = document.getElementById("dsaMaximumSearchTime").value;
+};
