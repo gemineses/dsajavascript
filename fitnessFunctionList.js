@@ -11,6 +11,8 @@ fitnessFunction = function(x){
                 sum = 0;
                 suma = 0;
                 for(i = 0; i<x.length; i++){
+					console.log("tofixed");
+					console.log(x[i]);
                     suma = Math.pow(x[i].toFixed(4), 2);
                     sum = sum + suma;
                 }

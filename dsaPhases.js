@@ -30,6 +30,8 @@ function createDolphins(){
 	for(y = 0; y < dsaDimensionalSpaceMin.length; y++){
 		//creating dimensions for dolphin
 		//dolp Position, in Y iteration, each iteration its an dimensional space(search var) (x,y,z...)
+		console.log("dsaDimensionalSpaceMax[y]");
+		console.log(dsaDimensionalSpaceMin[y]);
 		dolpPos = (Math.random() * (dsaDimensionalSpaceMax[y]-dsaDimensionalSpaceMin[y])) + dsaDimensionalSpaceMin[y];
 		dolp.dolp.push(dolpPos);
 		

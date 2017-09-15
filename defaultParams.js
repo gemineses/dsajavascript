@@ -5,8 +5,18 @@ fitnessSelected="3";
 
 dsaDimensionalSpaceMax = "5,5";
 dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
+//parseFloat
+for(i = 0; i<dsaDimensionalSpaceMax.length; i++){
+		dsaDimensionalSpaceMax[i] = parseFloat(dsaDimensionalSpaceMax[i]);
+	}
+	
 dsaDimensionalSpaceMin = "-5,-5";
 dsaDimensionalSpaceMin = dsaDimensionalSpaceMin.split(",");
+//parseFloat
+for(i = 0; i<dsaDimensionalSpaceMin.length; i++){
+		dsaDimensionalSpaceMin[i] = parseFloat(dsaDimensionalSpaceMin[i]);
+	}
+
 
 dsaIteration = 20;
 dsaMDirection = 3;
@@ -35,8 +45,15 @@ function updateParams(){
 	fitnessSelected = document.getElementById("dsaFitnessFunction").value;
 	dsaDimensionalSpaceMax = document.getElementById("dsaDimensionalSpaceMax").value;
 	dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
+	//parse to float
+	for(i = 0; i<dsaDimensionalSpaceMax.length; i++){
+		dsaDimensionalSpaceMax[i] = parseFloat(dsaDimensionalSpaceMax[i]);
+	}
 	dsaDimensionalSpaceMin = document.getElementById("dsaDimensionalSpaceMin").value;
 	dsaDimensionalSpaceMin = dsaDimensionalSpaceMin.split(",");
+	for(i = 0; i<dsaDimensionalSpaceMin.length; i++){
+		dsaDimensionalSpaceMin[i] = parseFloat(dsaDimensionalSpaceMin[i]);
+	}
 	dsaIteration = document.getElementById("dsaIteration").value;
 	dsaMDirection = document.getElementById("dsaMDirection").value;
 	dsaSpeed = document.getElementById("dsaSpeed").value;
