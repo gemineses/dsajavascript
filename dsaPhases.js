@@ -7,9 +7,9 @@ function createDolphins(){
 	dolphinNo = dsaDolphinNumbers;
 	//dimentions vars must have same number of vars
 	console.log("dsaDimensionalSpaceMax");
-	console.log(dsaDimensionalSpaceMax.lenght);
+	console.log(dsaDimensionalSpaceMax);
 	console.log("dsaDimensionalSpaceMax");
-	console.log(dsaDimensionalSpaceMin.lenght);
+	console.log(dsaDimensionalSpaceMin);
 	if(dsaDimensionalSpaceMax.length!=dsaDimensionalSpaceMin.length){
 		alert("Dimensions not match");
 		return 0;

@@ -34,7 +34,9 @@ function updateParams(){
 	dsaDolphinNumbers = document.getElementById("dsaDolphinNumbers").value;
 	fitnessSelected = document.getElementById("dsaFitnessFunction").value;
 	dsaDimensionalSpaceMax = document.getElementById("dsaDimensionalSpaceMax").value;
+	dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
 	dsaDimensionalSpaceMin = document.getElementById("dsaDimensionalSpaceMin").value;
+	dsaDimensionalSpaceMin = dsaDimensionalSpaceMin.split(",");
 	dsaIteration = document.getElementById("dsaIteration").value;
 	dsaMDirection = document.getElementById("dsaMDirection").value;
 	dsaSpeed = document.getElementById("dsaSpeed").value;
