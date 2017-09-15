@@ -40,7 +40,7 @@
 				actual = actual+div;
 			}
 		}else{
-			actual=dimMin[0];
+			actual=parseFloat(dimMin[0]);
 			for(i=0; i<10; i++){
 				ctxy.font = "15px Arial";
 				ctxy.fillText(actual*-1,5,40*i);
