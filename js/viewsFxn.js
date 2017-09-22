@@ -18,9 +18,20 @@ function updateGraphic(){
 	minSizeText = document.getElementById("dsaDimensionalSpaceMin").value;
 	numMax=maxSizeText.split(",");
 	numMin=minSizeText.split(",");
-	numLenMax = parseInt(numMax[0])-parseInt(numMin[0]);
-	numLenMin = parseInt(numMax[1])-parseInt(numMin[1]);
-	console.log(numLenMax);
-	console.log(numLenMin);
+	numLenMax=[];
+	numLenMin=[];
+	if(numMax.length!=numMin.length){
+		alert("Dimensions not match");
+	}else{
+		for(x=0; x<numMax.length; x++){
+			numLenMax.push(parseFloat(numMax[x]));
+		}
+		for(x=0; x<numMin.length; x++){
+			numLenMin.push(parseFloat(numMin[x]));
+		}
+		ctx.ruler(numLenMax, numLenMin, "x");
+		ctx.ruler(numLenMax, numLenMin, "y");
+	}
+	
 	//console.log(document.getElementById("dsaDimensionalSpaceMin").value);
 }

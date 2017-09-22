@@ -6,7 +6,7 @@
 	canvasx.width = 400;
 	canvasx.height = 20;
 	var canvasy = document.getElementById('canvasy');
-	canvasy.width = 20;
+	canvasy.width = 40;
 	canvasy.height = 400;
 	var canvas = document.getElementById('canvas');
 	canvas.width = 400;
@@ -25,9 +25,11 @@
 		diff = dimMax[0]-dimMin[0];
 		div = diff/10;
 		
+		
+		
 		if(pos=="x"){
 			actual=parseFloat(dimMin[0]);
-			
+			ctxx.clearRect(0, 0, canvas.width, canvas.height);
 			for(i=0; i<10; i++){
 				
 				actual2=parseInt(actual.toFixed(4));
@@ -41,6 +43,7 @@
 			}
 		}else{
 			actual=parseFloat(dimMin[0]);
+			ctxy.clearRect(0, 0, canvas.width, canvas.height);
 			for(i=0; i<10; i++){
 				ctxy.font = "15px Arial";
 				ctxy.fillText(actual*-1,5,40*i);

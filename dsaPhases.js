@@ -6,10 +6,6 @@ function createDolphins(){
 	
 	dolphinNo = dsaDolphinNumbers;
 	//dimentions vars must have same number of vars
-	console.log("dsaDimensionalSpaceMax");
-	console.log(dsaDimensionalSpaceMax);
-	console.log("dsaDimensionalSpaceMax");
-	console.log(dsaDimensionalSpaceMin);
 	if(dsaDimensionalSpaceMax.length!=dsaDimensionalSpaceMin.length){
 		alert("Dimensions not match");
 		return 0;
@@ -30,8 +26,6 @@ function createDolphins(){
 	for(y = 0; y < dsaDimensionalSpaceMin.length; y++){
 		//creating dimensions for dolphin
 		//dolp Position, in Y iteration, each iteration its an dimensional space(search var) (x,y,z...)
-		console.log("dsaDimensionalSpaceMax[y]");
-		console.log(dsaDimensionalSpaceMin[y]);
 		dolpPos = (Math.random() * (dsaDimensionalSpaceMax[y]-dsaDimensionalSpaceMin[y])) + dsaDimensionalSpaceMin[y];
 		dolp.dolp.push(dolpPos);
 		
@@ -60,8 +54,8 @@ searchPhase = function(){
 			/*dolp.dolp.[]
 			v[i][j] =  */
 		}
-		console.log(i);
+		
 	}
-	v = 
-	console.log(dolp);
+	//v = 
+	
 };
