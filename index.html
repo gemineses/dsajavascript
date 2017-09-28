@@ -13,8 +13,9 @@
 		<script type="text/javascript" src="js/materialize.min.js"></script>
 		
 		
-		<script src = "fitnessFunctionList.js"></script>
-		<script src = "dsaPhases.js"></script>		
+		<script src = "js/fitnessFunctionList.js"></script>
+		<script src = "js/dsaPhases.js"></script>
+		
 	</head>
 	<body>
 		<div class="row" id="headermain">
@@ -26,13 +27,10 @@
 		</div>
 		<div class="row">
 			<div class="col s3">
-
-				
 				<label class="active" for="dsaDolphinNumbers">Number of dolphins</label>
 				<input placeholder="dolphinNumbers" id="dsaDolphinNumbers" style="height: 1rem;" type="text" class="validate inputSmall wheelable" onchange="updateParams();">
 				<label class="active" for="dsaDolphinNumbers">Fitness Function</label>
 				<input placeholder="fitnessFunction" id="dsaFitnessFunction" style="height: 1rem;" type="text" class="validate inputSmall" onchange="updateParams();">
-				
 				<label class="active" for="dsaDolphinNumbers">Dimensional Space Max</label>
 				<input placeholder="dimensionalSpaceMax" id="dsaDimensionalSpaceMax" style="height: 1rem;" type="text" class="validate inputSmall" onchange="updateGraphic(); updateParams();" >
 				<label class="active" for="dsaDolphinNumbers">Dimensional Space Min</label>
@@ -49,30 +47,39 @@
 				<input placeholder="maxFitnessValue" id="dsaMaxFitnessValue" type="text" class="validate inputSmall" onchange="updateParams()">
 				<label class="active" for="dsaDolphinNumbers">Max Search Time</label>
 				<input placeholder="maximumSearchTime" id="dsaMaximumSearchTime" type="text" class="validate inputSmall" onchange="updateParams()">
-				
+				<a class="modal-trigger" href="#modal1">Help</a>
 			</div>
+			
 			<div class="col s4">
 				<div class="row">
 					<canvas id="canvas"  style="border:1px solid #000000;"></canvas>
 					<canvas id="canvasy"  style="border:1px solid #000000;"></canvas></br>
 					<canvas id="canvasx"  style="border:1px solid #000000;"></canvas>
 				</div>
+				<div class="row">
+					<select>
+					  <option value="volvo">Volvo</option>
+					  <option value="saab">Saab</option>
+					  <option value="mercedes">Mercedes</option>
+					  <option value="audi">Audi</option>
+					</select>
+				</div>
 			</div>
 			
-			<div class="col s3">				
-				<div class="row">					
+			<div class="col s3">
+				<div class="row">
 					<a class="waves-effect waves-light btn" onclick="createDolphins()">Create Dolphins</a>
 				</div>
-				<div class="row">					
+				<div class="row">
 					<a class="waves-effect waves-light btn" onclick="searchPhase()">Search Phase</a>
 				</div>
-				<div class="row">					
+				<div class="row">
 					<a class="waves-effect waves-light btn" onclick="searchPhase()">Call Phase</a>
 				</div>
-				<div class="row">					
+				<div class="row">
 					<a class="waves-effect waves-light btn" onclick="searchPhase()">Reception Phase</a>
 				</div>
-				<div class="row">					
+				<div class="row">
 					<a class="waves-effect waves-light btn" onclick="searchPhase()">Predation Phase</a>
 				</div>
 				
@@ -82,11 +89,24 @@
 				<input placeholder="dolphinsText" id="dolphinsText" type="text" class="validate">
 				
 			</div>
+
 		</div>
-	
+		<div class="row">
+			<div id="modal1" class="modal bottom-sheet">
+				<div class="modal-content">
+					<h4>Fitness Functions</h4>
+					<div id="fitFxnListHelp"></div>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+				</div>
+			</div>
+		</div>
+		
 		
 	</body>
-	<script src = "defaultParams.js"></script>
+	<script src = "js/defaultParams.js"></script>
 	<script src = "js/viewsFxn.js"></script>
-	<script src = "render.js"></script>
+	<script src = "js/render.js"></script>
+	<script src = "js/launchers.js"></script>
 <html>

@@ -1,8 +1,14 @@
+/*
+	DEFAULT PARAMS
+		- Vars
+			- 
+*/
+
 //vars
 dsaDolphinNumbers = 3;
-//fitnessFunction = x(:,1).^2+x(:,2).^2;
 fitnessSelected="3";
 
+//dimensionalSpace
 dsaDimensionalSpaceMax = "5,5";
 dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
 //parseFloat
@@ -17,13 +23,18 @@ for(i = 0; i<dsaDimensionalSpaceMin.length; i++){
 		dsaDimensionalSpaceMin[i] = parseFloat(dsaDimensionalSpaceMin[i]);
 	}
 
-
+//params to initializate this algorithm
 dsaIteration = 20;
 dsaMDirection = 3;
 dsaSpeed = 1;
 dsaTime = 3;
 dsaMaxFitnessValue =0;
 dsaMaximumSearchTime = 1;
+
+//fitness functions config, (to add more fitness fxn go to fitnessFunctionList file)
+matlabFormat = true;
+toFixedMax = 4;
+
 
 //assing to DOM element
 

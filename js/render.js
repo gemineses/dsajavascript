@@ -33,7 +33,6 @@
 			for(i=0; i<10; i++){
 				
 				actual2=parseInt(actual.toFixed(4));
-				console.log(parseInt(actual));
 				ctxx.font = "15px Arial";
 				ctxx.fillText(actual,40*i,15);
 				ctxx.moveTo(40*i,0);
