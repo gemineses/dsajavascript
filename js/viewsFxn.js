@@ -35,3 +35,17 @@ function updateGraphic(){
 	
 	//console.log(document.getElementById("dsaDimensionalSpaceMin").value);
 }
+
+
+//for each dolphin hes description
+
+function dolphinFieldDescription(dolp){
+	console.log('dolp');
+	console.log(dolp);
+	textfield="";
+	for(i = 0; i<dolp.length; i++){
+		textfield += "<label class='active' for='dsaDolphinNumbers'>Dolphin #"+i+"</label><input placeholder='maximumSearchTime' type='text' class='validate inputSmall' onchange='updateParams()' value='"+dolp[i].dolp+"'><br/>";	
+	}
+	
+	document.getElementById('dolphinList').innerHTML = textfield;
+}

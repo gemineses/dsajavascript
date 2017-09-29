@@ -40,6 +40,7 @@ function createDolphins(){
 	}
 	ctx.clear();
 	ctx.setDolphins(dolphins);
+	dolphinFieldDescription(dolphins);
 }
 
 

@@ -6,7 +6,7 @@
 
 //vars
 dsaDolphinNumbers = 3;
-fitnessSelected="3";
+fitnessSelected="1";
 
 //dimensionalSpace
 dsaDimensionalSpaceMax = "5,5";
