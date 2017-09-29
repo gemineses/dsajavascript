@@ -3,29 +3,35 @@
 fitnessFunction = function(x){
     fitnessSelected = parseInt(document.getElementById('dsaFitnessFunction').value);    
     
+	
+	
+	//investigar si es por demension
     if(matlabFormat){
         switch(fitnessSelected){
-			case 1:
-				sum = 0;
-				for(i = 0; i<x.length; i++){
-					sum = Math.abs(x[i].toFixed(toFixedMax))+Math.cos(x[i].toFixed(toFixedMax));
-					console.log(x);
-				}
+			case 1://f=abs(x)+cos(x);
+				sum = Math.abs(x[0].toFixed(toFixedMax))+Math.cos(x[0].toFixed(toFixedMax));
 				return sum.toFixed(toFixedMax);
 			break;
-            case 3:
+			case 2://f=abs(x)+sin(x);
+				sum = Math.abs(x[i].toFixed(toFixedMax))+Math.sin(x[i].toFixed(toFixedMax));
+				return sum.toFixed(toFixedMax);
+			break;
+            case 3://f=x(:,1).^2+x(:,2).^2;
                 maxFitnessValue = 60;
                 sum = 0;
                 suma = 0;
                 for(i = 0; i<x.length; i++){
-					console.log("tofixed");
-					console.log(x[i]);
                     suma = Math.pow(x[i].toFixed(toFixedMax), 2);
                     sum = sum + suma;
                 }
                 console.log("fitness sphere result = "+sum.toFixed(toFixedMax));
                 return sum.toFixed(toFixedMax);
             break;
+			case 4://f=100*(x(:,2).^2-x(:,1)).^2+(1-x(:,1)).^2;
+				sum = 0;
+				suma = 0;
+				
+			break;
         }
     }else{
         switch(fitnessSelected){

@@ -30,7 +30,7 @@ function createDolphins(){
 		dolp.dolp.push(dolpPos);
 		
 	}
-
+	
 	//creatingIndividualOptimalSolution
 	dolp.individual.push(fitnessFunction(dolp.dolp));
 
@@ -49,8 +49,8 @@ searchPhase = function(){
 	x = dolp;
 	v = [];
 
-	for(i = 0; i<mDirection; i++){
-		for(j = 0; j<dimensionalSpaceMax.lenght; j++){
+	for(i = 0; i<dsaMDirection; i++){
+		for(j = 0; j<dsaDimensionalSpaceMax.lenght; j++){
 			/*dolp.dolp.[]
 			v[i][j] =  */
 		}
