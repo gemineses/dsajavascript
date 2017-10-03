@@ -24,4 +24,3 @@ textToHelp = "1 - f=abs(x)+cos(x) <br />"
 + " 17 - x=x+1; <br />f(:,1)=(x(:,1)+x(:,2).^2+sqrt(x(:,3))+1./x(:,4))/8.5;<br /> f(:,2)=(1./x(:,1)+1./x(:,2)+x(:,3)+x(:,4))/6;";
 
 document.getElementById('fitFxnListHelp').innerHTML = textToHelp;
-console.log(textToHelp);

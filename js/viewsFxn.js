@@ -44,7 +44,21 @@ function dolphinFieldDescription(dolp){
 	console.log(dolp);
 	textfield="";
 	for(i = 0; i<dolp.length; i++){
-		textfield += "<label class='active' for='dsaDolphinNumbers'>Dolphin #"+i+"</label><input placeholder='maximumSearchTime' type='text' class='validate inputSmall' onchange='updateParams()' value='"+dolp[i].dolp+"'><br/>";	
+		console.log(dolp);
+		textfield += "<div class='row'>";
+		for(j=0; j<dolp[i].dolp.length; j++){
+			textfield += "<div class='col s5'>"
+			+"<label class='active' for='dsaDolphinNumbers'>Dolphin #"+i+", Dim:"+j
+			+"</label>"
+			+"<input placeholder='maximumSearchTime' type='text' class='validate inputSmall' onchange='updateParams()' value='"+dolp[i].dolp[j]+"'><br/>"
+			+"</div>";
+		}
+		textfield += "<div class='col s5'>"
+			+"<label class='active' for='dsaDolphinNumbers'>Dolphin #"+i+" result"
+			+"</label>"
+			+"<input placeholder='maximumSearchTime' type='text' class='validate inputSmall' onchange='updateParams()' value='"+dolp[i].individual+"'><br/>"
+			+"</div>";
+		textfield += "</div>";
 	}
 	
 	document.getElementById('dolphinList').innerHTML = textfield;
