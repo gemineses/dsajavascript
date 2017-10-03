@@ -27,10 +27,38 @@ fitnessFunction = function(x){
                 console.log("fitness sphere result = "+sum.toFixed(toFixedMax));
                 return sum.toFixed(toFixedMax);
             break;
-			case 4://f=100*(x(:,2).^2-x(:,1)).^2+(1-x(:,1)).^2;
+			case 4://f=100*(x(:,2).^2-x(:,1)).^2 + (1-x(:,1)).^2;
 				sum = 0;
 				suma = 0;
-				
+				for(i = 0; i<x.length; i++){
+					
+				}
+			break;
+			case 5:
+			break;
+			case 6:
+			break;
+			case 7:
+			break;
+			case 8:
+			break;
+			case 9:
+			break;
+			case 10:
+			break;
+			case 11:
+			break;
+			case 12:
+			break;
+			case 13:
+			break;
+			case 14:
+			break;
+			case 15:
+			break;
+			case 16:
+			break;
+			case 17:
 			break;
         }
     }else{
