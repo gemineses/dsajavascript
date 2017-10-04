@@ -33,7 +33,9 @@ function createDolphins(){
 	
 	//creatingIndividualOptimalSolution
 	dolp.individual.push(fitnessFunction(dolp.dolp));
-
+	
+	fitByDolp.push(fitnessFunction(dolp.dolp));
+	
 	//creatingNeighborhoodOptimalSolution   
 	dolp.neighborhood.push(fitnessFunction(dolp.dolp));
 		dolphins.push(dolp);
@@ -47,16 +49,34 @@ function createDolphins(){
 //search  phase
 
 searchPhase = function(){
-	x = dolp;
 	v = [];
-
+	
+	//loop by number of directions
 	for(i = 0; i<dsaMDirection; i++){
-		for(j = 0; j<dsaDimensionalSpaceMax.lenght; j++){
-			/*dolp.dolp.[]
-			v[i][j] =  */
+		sound = [];
+		for(j = 0; j<noDimensions; j++){
+			sound.push(dsaSpeed);
 		}
-		
+		v.push(sound);
 	}
-	//v = 
+	
+	//new solution	
+	console.log(dolphins);
+	for(i = 0; i<dolphins.length; i++){
+		for(j = 0; j<v.length; j++){
+			sound = v[j];
+			for(k = 0; k<dsaMDirection; k++){
+				solutionX = dolphins[i].dolp[k]+(sound[k]*dsaSpeed);
+				console.log("solutionX");
+				console.log(solutionX);
+				console.log(fitnessFunction(dolphins[i].dolp));
+			}
+			//console.log(v[j]);
+		}
+		//console.log(solutionX);
+	}
+	
+	
+	
 	
 };

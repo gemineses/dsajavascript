@@ -70,8 +70,6 @@
 		
 		for(i=0; i<dolphins.length; i++){
 			ctx.beginPath();
-			console.log(dolphins);
-			console.log(dolphins[i].individual);
 			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
 			ctx.arc(((dolphins[i].dolp[0])*div)+200,(((dolphins[i].dolp[1]*div))*-1)+200,5,0,2*Math.PI);
 			ctx.stroke();
@@ -92,9 +90,9 @@
 		for(i=0; i<dolK.length; i++){
 			for(j=0; j<dolK[i].M.length; j++){
 				for(k=0; k<dolK[i].M[j].length; k++){
-					console.log(dolK[i].M[j][k]);
+					//console.log(dolK[i].M[j][k]);
 					ctx.beginPath();
-					console.log(dolphins[i].individual);
+					//console.log(dolphins[i].individual);
 					document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
 					ctx.arc(((dolK[i].M[j][k][0])*div)+200,(((dolK[i].M[j][k][1]*div))*-1)+200,2,0,2*Math.PI);
 					ctx.stroke();

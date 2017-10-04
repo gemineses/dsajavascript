@@ -25,9 +25,11 @@ function updateGraphic(){
 	}else{
 		for(x=0; x<numMax.length; x++){
 			numLenMax.push(parseFloat(numMax[x]));
+			noDimensions = x+1;
 		}
 		for(x=0; x<numMin.length; x++){
 			numLenMin.push(parseFloat(numMin[x]));
+			noDimensions = x+1;
 		}
 		ctx.ruler(numLenMax, numLenMin, "x");
 		ctx.ruler(numLenMax, numLenMin, "y");
@@ -40,11 +42,8 @@ function updateGraphic(){
 //for each dolphin hes description
 
 function dolphinFieldDescription(dolp){
-	console.log('dolp');
-	console.log(dolp);
 	textfield="";
 	for(i = 0; i<dolp.length; i++){
-		console.log(dolp);
 		textfield += "<div class='row'>";
 		for(j=0; j<dolp[i].dolp.length; j++){
 			textfield += "<div class='col s5'>"
@@ -54,7 +53,7 @@ function dolphinFieldDescription(dolp){
 			+"</div>";
 		}
 		textfield += "<div class='col s5'>"
-			+"<label class='active' for='dsaDolphinNumbers'>Dolphin #"+i+" result"
+			+"<label class='active' for='dsaDolphinNumbers'>Dolphin #"+i+" Fitness"
 			+"</label>"
 			+"<input placeholder='maximumSearchTime' type='text' class='validate inputSmall' onchange='updateParams()' value='"+dolp[i].individual+"'><br/>"
 			+"</div>";

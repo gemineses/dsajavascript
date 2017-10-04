@@ -7,13 +7,19 @@
 //vars
 dsaDolphinNumbers = 3;
 fitnessSelected="1";
+fitByDolp = [];
+
+//dim
+noDimensions = 0;
 
 //dimensionalSpace
 dsaDimensionalSpaceMax = "5,5";
 dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
+
 //parseFloat
 for(i = 0; i<dsaDimensionalSpaceMax.length; i++){
 		dsaDimensionalSpaceMax[i] = parseFloat(dsaDimensionalSpaceMax[i]);
+		noDimensions = i+1;
 	}
 	
 dsaDimensionalSpaceMin = "-5,-5";
@@ -21,6 +27,7 @@ dsaDimensionalSpaceMin = dsaDimensionalSpaceMin.split(",");
 //parseFloat
 for(i = 0; i<dsaDimensionalSpaceMin.length; i++){
 		dsaDimensionalSpaceMin[i] = parseFloat(dsaDimensionalSpaceMin[i]);
+		noDimensions = i+1;
 	}
 
 //params to initializate this algorithm
