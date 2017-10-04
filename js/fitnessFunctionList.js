@@ -13,7 +13,7 @@ fitnessFunction = function(x){
 				return sum.toFixed(toFixedMax);
 			break;
 			case 2://f=abs(x)+sin(x);
-				sum = Math.abs(x[i].toFixed(toFixedMax))+Math.sin(x[i].toFixed(toFixedMax));
+				sum = Math.abs(x[0].toFixed(toFixedMax))+Math.sin(x[0].toFixed(toFixedMax));
 				return sum.toFixed(toFixedMax);
 			break;
             case 3://f=x(:,1).^2+x(:,2).^2;
@@ -31,7 +31,7 @@ fitnessFunction = function(x){
 				sum = 0;
 				suma = 0;
 				for(i = 0; i<x.length; i++){
-					
+					console.log();
 				}
 			break;
 			case 5:
