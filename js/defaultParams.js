@@ -12,6 +12,7 @@ fitByDolp = [];
 //dim
 noDimensions = 0;
 
+
 //dimensionalSpace
 dsaDimensionalSpaceMax = "5,5";
 dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
@@ -41,6 +42,11 @@ dsaMaximumSearchTime = 1;
 //fitness functions config, (to add more fitness fxn go to fitnessFunctionList file)
 matlabFormat = true;
 toFixedMax = 4;
+
+
+//added params
+//360 directions on/off
+circleDirections = true;
 
 
 //assing to DOM element

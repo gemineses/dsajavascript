@@ -55,7 +55,12 @@ searchPhase = function(){
 	for(i = 0; i<dsaMDirection; i++){
 		sound = [];
 		for(j = 0; j<noDimensions; j++){
-			sound.push(dsaSpeed);
+			if(circleDirections){
+				
+			}else{
+				sound.push(dsaSpeed);
+			}
+			
 		}
 		v.push(sound);
 	}
