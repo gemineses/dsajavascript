@@ -108,15 +108,12 @@
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		
-		
-		
 		console.log(diff/10);
 		for(i=0; i<dolphins.length; i++){
 			ctx.beginPath();
 			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
 			ctx.arc(((dolphins[i].dolp[0])*div)+200,(((dolphins[i].dolp[1]*div))*-1)+200,5,0,2*Math.PI);
 			ctx.stroke();
-			
 		}
 		
 	};
