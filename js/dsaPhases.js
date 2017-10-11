@@ -55,10 +55,11 @@ searchPhase = function(){
 	for(i = 0; i<dsaMDirection; i++){
 		sound = [];
 		for(j = 0; j<noDimensions; j++){
-			if(circleDirections){
-				
+			//del 0-9 de forma aleatoria, para generar el M random direccion			
+			if(((Math.floor(Math.random() * (9 - 0)) + 0)%2)==0){
+				sound.push(parseFloat(dsaSpeed));
 			}else{
-				sound.push(dsaSpeed);
+				sound.push(parseFloat(-dsaSpeed));
 			}
 			
 		}
@@ -66,15 +67,17 @@ searchPhase = function(){
 	}
 	
 	//new solution	
-	console.log(dolphins);
+	//console.log(dolphins);
 	for(i = 0; i<dolphins.length; i++){
 		for(j = 0; j<v.length; j++){
 			sound = v[j];
 			for(k = 0; k<dsaMDirection; k++){
+				dolp = dolphins[i].dolp;
 				solutionX = dolphins[i].dolp[k]+(sound[k]*dsaSpeed);
 				console.log("solutionX");
 				console.log(solutionX);
 				console.log(fitnessFunction(dolphins[i].dolp));
+				ctx.setEchoDirections(dolp[0], dolp[1], sound[0], sound[1]);
 			}
 			//console.log(v[j]);
 		}

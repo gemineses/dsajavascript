@@ -78,6 +78,19 @@
 		
 	};
 	
+	//echo directions
+	ctx.setEchoDirections = function (dolpX, dolpY, ecoX, ecoY){
+		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
+		div = (diff/10)*40;
+		
+		console.log("div");
+		console.log(div);
+		ctx.beginPath();
+		ctx.moveTo((dolpX*div)+div, (dolpY*div)+div);
+		ctx.lineTo((ecoX*div)+div, (ecoY*div)+div);
+		ctx.stroke();
+	};
+	
 	
 	/*
 		Set K(neightboorhood) echo from dolphins ecolocations
