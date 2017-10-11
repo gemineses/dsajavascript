@@ -16,7 +16,6 @@
 	var ctx = canvas.getContext('2d');
 	
 	
-	
 	/*
 		Ruler function, (Dimention Max, Dimention Min, Axys)
 		Paint the number and line with the 10% per division
@@ -54,9 +53,55 @@
 		}
 		
 	};
-	
 	ctx.ruler(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin, "x");
 	ctx.ruler(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin, "y");
+	
+	/*
+	Ruler inside canvas fxn
+	*/
+	ctx.rulerInside = function(dMax, dMin){
+		ctx.clear();
+		diff = dMax[0]-dMin[0];
+		div = (diff/10)*40;
+		
+		for(i = 1; i<Math.floor(dMax[0]); i++){
+			entire=parseInt(((i*200)/dMax[0])+200);
+			ctx.beginPath();
+			ctx.moveTo((entire),200+5);
+			ctx.lineTo((entire),200-5);
+			ctx.stroke();	
+		}
+		for(i = 1; i<Math.floor(dMax[1]); i++){
+			entire=parseInt(((i*200)/dMax[1])+200);
+			ctx.beginPath();
+			ctx.moveTo(200+5,entire-200);
+			ctx.lineTo(200-5,entire-200);
+			ctx.stroke();
+		}
+		
+		for(i = 1; i<Math.floor(dMin[0]*-1); i++){
+			entire=parseInt(((i*200)/dMin[0])+200);
+			ctx.beginPath();
+			console.log(Math.floor(dMin[0]*-1));
+			ctx.moveTo((entire),200+5);
+			ctx.lineTo((entire),200-5);
+			ctx.stroke();	
+		}
+		for(i = 1; i<Math.floor(dMin[1]*-1); i++){
+			entire=parseInt(((i*200)/dMin[1])+200);
+			ctx.beginPath();
+			ctx.moveTo(200+5,entire+200);
+			ctx.lineTo(200-5,entire+200);
+			ctx.stroke();	
+		}
+		
+		
+		/*ctx.beginPath();
+		ctx.moveTo(200,200);
+		ctx.lineTo(200+10,200+10);
+		ctx.stroke();*/
+	}
+	
 	
 	
 	
@@ -68,6 +113,7 @@
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		
+		console.log(diff);
 		for(i=0; i<dolphins.length; i++){
 			ctx.beginPath();
 			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
@@ -83,11 +129,9 @@
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		
-		console.log("div");
-		console.log(div);
 		ctx.beginPath();
-		ctx.moveTo((dolpX*div)+div, (dolpY*div)+div);
-		ctx.lineTo((ecoX*div)+div, (ecoY*div)+div);
+		ctx.moveTo((dolpX*div)+200, (dolpY*div*-1)+200);
+		ctx.lineTo((ecoX*div)+200, (ecoY*div*-1)+200);
 		ctx.stroke();
 	};
 	
@@ -125,3 +169,5 @@
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 	};
 	ctx.clear();
+	ctx.rulerInside(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
+	

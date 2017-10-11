@@ -41,6 +41,7 @@ function createDolphins(){
 		dolphins.push(dolp);
 	}
 	ctx.clear();
+	ctx.rulerInside(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 	ctx.setDolphins(dolphins);
 	dolphinFieldDescription(dolphins);
 }
@@ -56,7 +57,7 @@ searchPhase = function(){
 		sound = [];
 		for(j = 0; j<noDimensions; j++){
 			//del 0-9 de forma aleatoria, para generar el M random direccion			
-			if(((Math.floor(Math.random() * (9 - 0)) + 0)%2)==0){
+			if(((Math.floor(Math.random() * (2 - 0)) + 0)%2)==0){
 				sound.push(parseFloat(dsaSpeed));
 			}else{
 				sound.push(parseFloat(-dsaSpeed));
@@ -65,23 +66,26 @@ searchPhase = function(){
 		}
 		v.push(sound);
 	}
+	console.log("v");
+	console.log(v);
 	
 	//new solution	
 	//console.log(dolphins);
 	for(i = 0; i<dolphins.length; i++){
-		for(j = 0; j<v.length; j++){
+		contador=0;
+		for(j = 0; j<dsaMDirection; j++){
 			sound = v[j];
-			for(k = 0; k<dsaMDirection; k++){
-				dolp = dolphins[i].dolp;
-				solutionX = dolphins[i].dolp[k]+(sound[k]*dsaSpeed);
-				console.log("solutionX");
-				console.log(solutionX);
-				console.log(fitnessFunction(dolphins[i].dolp));
-				ctx.setEchoDirections(dolp[0], dolp[1], sound[0], sound[1]);
+			dolp = dolphins[i].dolp;
+			solution=[];
+			for(k = 0; k<dolp.length; k++){
+				
+				solutionNow = dolphins[i].dolp[k]+(sound[k]*dsaSpeed*dsaTime);
+				//console.log(fitnessFunction(dolphins[i].dolp));
+				
+				solution.push(solutionNow);
 			}
-			//console.log(v[j]);
+			ctx.setEchoDirections(dolp[0], dolp[1], solution[0], solution[1]);	
 		}
-		//console.log(solutionX);
 	}
 	
 	

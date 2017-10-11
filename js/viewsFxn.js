@@ -33,6 +33,7 @@ function updateGraphic(){
 		}
 		ctx.ruler(numLenMax, numLenMin, "x");
 		ctx.ruler(numLenMax, numLenMin, "y");
+		ctx.rulerInside(numLenMax, numLenMin);
 	}
 	
 	//console.log(document.getElementById("dsaDimensionalSpaceMin").value);
