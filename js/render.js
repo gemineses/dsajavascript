@@ -31,7 +31,7 @@
 			ctxx.clearRect(0, 0, canvas.width, canvas.height);
 			for(i=0; i<10; i++){
 				
-				actual2=parseInt(actual.toFixed(4));
+				actual=parseFloat(actual.toFixed(4));
 				ctxx.font = "15px Arial";
 				ctxx.fillText(actual,40*i,15);
 				ctxx.moveTo(40*i,0);
@@ -43,6 +43,7 @@
 			actual=parseFloat(dimMin[0]);
 			ctxy.clearRect(0, 0, canvas.width, canvas.height);
 			for(i=0; i<10; i++){
+				actual=parseFloat(actual.toFixed(4));
 				ctxy.font = "15px Arial";
 				ctxy.fillText(actual*-1,5,40*i);
 				ctxy.moveTo(0,40*i);
@@ -82,7 +83,6 @@
 		for(i = 1; i<Math.floor(dMin[0]*-1); i++){
 			entire=parseInt(((i*200)/dMin[0])+200);
 			ctx.beginPath();
-			console.log(Math.floor(dMin[0]*-1));
 			ctx.moveTo((entire),200+5);
 			ctx.lineTo((entire),200-5);
 			ctx.stroke();	
@@ -95,11 +95,6 @@
 			ctx.stroke();	
 		}
 		
-		
-		/*ctx.beginPath();
-		ctx.moveTo(200,200);
-		ctx.lineTo(200+10,200+10);
-		ctx.stroke();*/
 	}
 	
 	
@@ -113,7 +108,9 @@
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		
-		console.log(diff);
+		
+		
+		console.log(diff/10);
 		for(i=0; i<dolphins.length; i++){
 			ctx.beginPath();
 			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
