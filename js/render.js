@@ -63,35 +63,36 @@
 	ctx.rulerInside = function(dMax, dMin){
 		ctx.clear();
 		diff = dMax[0]-dMin[0];
-		div = (diff/10)*40;
+		axisSize = canvas.width/2;
+		div = (diff/10)*(axisSize/5);
 		
 		for(i = 1; i<Math.floor(dMax[0]); i++){
-			entire=parseInt(((i*200)/dMax[0])+200);
+			entire=parseInt(((i*axisSize)/dMax[0])+axisSize);
 			ctx.beginPath();
-			ctx.moveTo((entire),200+5);
-			ctx.lineTo((entire),200-5);
+			ctx.moveTo((entire),axisSize+5);
+			ctx.lineTo((entire),axisSize-5);
 			ctx.stroke();	
 		}
 		for(i = 1; i<Math.floor(dMax[1]); i++){
-			entire=parseInt(((i*200)/dMax[1])+200);
+			entire=parseInt(((i*axisSize)/dMax[1])+axisSize);
 			ctx.beginPath();
-			ctx.moveTo(200+5,entire-200);
-			ctx.lineTo(200-5,entire-200);
+			ctx.moveTo(axisSize+5,entire-axisSize);
+			ctx.lineTo(axisSize-5,entire-axisSize);
 			ctx.stroke();
 		}
 		
 		for(i = 1; i<Math.floor(dMin[0]*-1); i++){
-			entire=parseInt(((i*200)/dMin[0])+200);
+			entire=parseInt(((i*axisSize)/dMin[0])+axisSize);
 			ctx.beginPath();
-			ctx.moveTo((entire),200+5);
-			ctx.lineTo((entire),200-5);
+			ctx.moveTo((entire),axisSize+5);
+			ctx.lineTo((entire),axisSize-5);
 			ctx.stroke();	
 		}
 		for(i = 1; i<Math.floor(dMin[1]*-1); i++){
-			entire=parseInt(((i*200)/dMin[1])+200);
+			entire=parseInt(((i*axisSize)/dMin[1])+axisSize);
 			ctx.beginPath();
-			ctx.moveTo(200+5,entire+200);
-			ctx.lineTo(200-5,entire+200);
+			ctx.moveTo(axisSize+5,entire+axisSize);
+			ctx.lineTo(axisSize-5,entire+axisSize);
 			ctx.stroke();	
 		}
 		
@@ -104,15 +105,19 @@
 		Set dolphins functions (Dolphins object)
 		Paint the dolphins in the canvas
 	*/
-	ctx.setDolphins = function(dolphins){
-		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
+	ctx.setDolphins = function(dolphins, dMax, dMin){
+		diff = dMax[0]-dMin[0];
 		div = (diff/10)*40;
+		axisSize = canvas.width/2;
 		
-		console.log(diff/10);
+		
 		for(i=0; i<dolphins.length; i++){
+			ejeX = ((dolphins[i].dolp[0]*axisSize)/dMax[0])+axisSize;
+			ejeY = (((dolphins[i].dolp[1]*axisSize*-1)/dMax[1])+axisSize);
+			console.log(ejeY);
 			ctx.beginPath();
 			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
-			ctx.arc(((dolphins[i].dolp[0])*div)+200,(((dolphins[i].dolp[1]*div))*-1)+200,5,0,2*Math.PI);
+			ctx.arc(ejeX, ejeY,5,0,2*Math.PI);
 			ctx.stroke();
 		}
 		

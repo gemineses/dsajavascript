@@ -42,7 +42,7 @@ function createDolphins(){
 	}
 	ctx.clear();
 	ctx.rulerInside(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
-	ctx.setDolphins(dolphins);
+	ctx.setDolphins(dolphins, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 	dolphinFieldDescription(dolphins);
 }
 
