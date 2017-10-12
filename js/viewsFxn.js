@@ -56,6 +56,11 @@ function dolphinFieldDescription(dolp){
 		textfield += "<div class='col s5'>"
 			+"<label class='active' for='dsaDolphinNumbers'>Dolphin #"+i+" Fitness"
 			+"</label>"
+			+"<input placeholder='maximumSearchTime' type='text' class='validate inputSmall' onchange='updateParams()' value='"+dolp[i].firstFitness+"'><br/>"
+			+"</div>";
+		textfield += "<div class='col s5'>"
+			+"<label class='active' for='dsaDolphinNumbers'>Dolphin #"+i+" K Fitness"
+			+"</label>"
 			+"<input placeholder='maximumSearchTime' type='text' class='validate inputSmall' onchange='updateParams()' value='"+dolp[i].individual.fitness+"'><br/>"
 			+"</div>";
 		textfield += "</div>";

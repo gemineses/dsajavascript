@@ -13,14 +13,14 @@ function createDolphins(){
 	
 	// each dolphing have a dolp(position), individual(best match of position), neighborhood(best match near).... at first time all the values are equals
 	dolphins = [];
-	Dolphin = {dolp:[], individual:{"axys":[], "fitness":0}, neighborhood:{"axys":[], "fitness":0}};
+	Dolphin = {dolp:[], individual:{"axys":[], "fitness":0}, neighborhood:{"axys":[], "fitness":0}, firstFitness:0};
 	dolp = Dolphin;
 	dolpDim = 0;
 	dd = 0;//distance
 
 	//creating dolphins
 	for(x = 0; x < dolphinNo; x++){
-		dolp = {dolp:[], individual:{"axys":[], "fitness":0}, neighborhood:{"axys":[], "fitness":0}};
+		dolp = {dolp:[], individual:{"axys":[], "fitness":0}, neighborhood:{"axys":[], "fitness":0}, firstFitness:0};
 	
 
 		for(y = 0; y < dsaDimensionalSpaceMin.length; y++){
@@ -36,6 +36,7 @@ function createDolphins(){
 		dolp.individual.axys=dolp.dolp;
 		
 		fitByDolp.push(fitnessFunction(dolp.dolp));
+		dolp.firstFitness = fitnessFunction(dolp.dolp);
 		
 		//creatingNeighborhoodOptimalSolution   
 		dolp.neighborhood.fitness = fitnessFunction(dolp.dolp);
@@ -83,6 +84,7 @@ searchPhase = function(){
 			eTmpM = {"time":[]};
 			minTmp = 0;
 			minLoc = [];
+			min = 0;
 			for(k = 0; k<=dsaTime; k++){
 				eTmpT={"axys":[], "fitness":0};
 				//inicia desde k para emitir el eco desde la raiz
@@ -92,32 +94,27 @@ searchPhase = function(){
 				}
 				//tomando el fitness
 				eTmpT.fitness = parseFloat(fitnessFunction(eTmpT.axys));
+				
 				//calculando el minimo
 				if(k==0){
 					min = eTmpT.fitness;
 					minLoc = eTmpT;
 				}
+				
 				if(min>eTmpT.fitness){
 					minLoc = eTmpT;
 					min = eTmpT.fitness;
 				}
 				
 				//graficando todas las m direcciones
-				/*console.log("------");
-				console.log(dolp[0]);
-				console.log(dolp[1]);
-				console.log(eTmpT);
-				console.log(dsaTime);
-				*/
 				ctx.setEchoDirections(dolp[0], dolp[1], eTmpT, dsaTime);
 				eTmpM.time.push(eTmpT);
 			}
 			//cambiando el fitness encontrado por el fitness vecino
-			if(minLoc.fitness<dolphins[i].neighborhood.fitness[0]){
+			if(parseFloat(minLoc.fitness)<parseFloat(dolphins[i].neighborhood.fitness)){
 				dolphins[i].neighborhood.axys=minLoc.axys;
 				dolphins[i].neighborhood.fitness = minLoc.fitness;
 			}
-			
 			if(dolphins[i].individual.fitness>dolphins[i].neighborhood.fitness){
 				dolphins[i].individual.fitness=dolphins[i].neighborhood.fitness;
 				dolphins[i].individual.axys = dolphins[i].neighborhood.axys;
@@ -126,24 +123,10 @@ searchPhase = function(){
 			ctx.setEchoDirectionsByMin(dolp[0], dolp[1], minLoc, dsaTime);
 			eTempAll.mDir.push(eTmpM);
 		}
+		
 		E.push(eTempAll);
 	}
-	
-	console.log(dolphins);
-	/*
-	for(i = 0; i<dolphins.length; i++){
-		for(j = 0; j<dsaMDirection; j++){
-			for(k = 0; k<=dsaTime; k++){
-				//console.log(dolphins[i]);
-				//min = dolphins[i].
-				for(l = 0; l<dolp.length; l++){
-				
-				
-				}
-			}
-		}
-	}*/
-	
+	dolphinFieldDescription(dolphins);
 	
 	
 	

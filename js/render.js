@@ -126,6 +126,7 @@
 	ctx.setEchoDirections = function (dolpX, dolpY, ecoMDir, time){
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
+		axisSize = canvas.width/2;
 		
 		//allpath
 		ctx.beginPath();
