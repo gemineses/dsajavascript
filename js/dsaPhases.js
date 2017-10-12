@@ -13,31 +13,33 @@ function createDolphins(){
 	
 	// each dolphing have a dolp(position), individual(best match of position), neighborhood(best match near).... at first time all the values are equals
 	dolphins = [];
-	Dolphin = {dolp:[], individual:[], neighborhood:[]};
+	Dolphin = {dolp:[], individual:{"axys":[], "fitness":0}, neighborhood:{"axys":[], "fitness":0}};
 	dolp = Dolphin;
 	dolpDim = 0;
 	dd = 0;//distance
 
 	//creating dolphins
 	for(x = 0; x < dolphinNo; x++){
-		dolp = {dolp:[], individual:[], neighborhood:[]
-	};
+		dolp = {dolp:[], individual:{"axys":[], "fitness":0}, neighborhood:{"axys":[], "fitness":0}};
+	
 
-	for(y = 0; y < dsaDimensionalSpaceMin.length; y++){
-		//creating dimensions for dolphin
-		//dolp Position, in Y iteration, each iteration its an dimensional space(search var) (x,y,z...)
-		dolpPos = (Math.random() * (dsaDimensionalSpaceMax[y]-dsaDimensionalSpaceMin[y])) + dsaDimensionalSpaceMin[y];
-		dolp.dolp.push(dolpPos);
+		for(y = 0; y < dsaDimensionalSpaceMin.length; y++){
+			//creating dimensions for dolphin
+			//dolp Position, in Y iteration, each iteration its an dimensional space(search var) (x,y,z...)
+			dolpPos = (Math.random() * (dsaDimensionalSpaceMax[y]-dsaDimensionalSpaceMin[y])) + dsaDimensionalSpaceMin[y];
+			dolp.dolp.push(dolpPos);
+			
+		}
+	
+		//creatingIndividualOptimalSolution
+		dolp.individual.fitness = fitnessFunction(dolp.dolp);
+		dolp.individual.axys=dolp.dolp;
 		
-	}
-	
-	//creatingIndividualOptimalSolution
-	dolp.individual.push(fitnessFunction(dolp.dolp));
-	
-	fitByDolp.push(fitnessFunction(dolp.dolp));
-	
-	//creatingNeighborhoodOptimalSolution   
-	dolp.neighborhood.push(fitnessFunction(dolp.dolp));
+		fitByDolp.push(fitnessFunction(dolp.dolp));
+		
+		//creatingNeighborhoodOptimalSolution   
+		dolp.neighborhood.fitness = fitnessFunction(dolp.dolp);
+		dolp.neighborhood.axys=dolp.dolp;
 		dolphins.push(dolp);
 	}
 	ctx.clear();
@@ -71,23 +73,25 @@ searchPhase = function(){
 	//console.log(dolphins);
 	//E is for temporal dolphins solutions(echo)
 	E = [];
+	contador=0;
 	for(i = 0; i<dolphins.length; i++){
-		contador=0;
-		eTempAll = {"mDir":[]}
+		eTempAll = {"mDir":[]};
 		for(j = 0; j<dsaMDirection; j++){
 			sound = v[j];
 			dolp = dolphins[i].dolp;
 			solution=[];
 			eTmpM = {"time":[]};
 			minTmp = 0;
+			minLoc = [];
 			for(k = 0; k<=dsaTime; k++){
-				eTmpT={"axys":[]};
+				eTmpT={"axys":[], "fitness":0};
+				//inicia desde k para emitir el eco desde la raiz
 				for(l = 0; l<dolp.length; l++){
-					solutionNow = dolphins[i].dolp[l]+(sound[l]*dsaSpeed*k);
+					solutionNow = parseFloat(dolphins[i].dolp[l])+(sound[l]*dsaSpeed*k);
 					eTmpT.axys.push(solutionNow);
 				}
 				//tomando el fitness
-				eTmpT.fitness = fitnessFunction(eTmpT.axys);
+				eTmpT.fitness = parseFloat(fitnessFunction(eTmpT.axys));
 				//calculando el minimo
 				if(k==0){
 					min = eTmpT.fitness;
@@ -99,16 +103,34 @@ searchPhase = function(){
 				}
 				
 				//graficando todas las m direcciones
+				/*console.log("------");
+				console.log(dolp[0]);
+				console.log(dolp[1]);
+				console.log(eTmpT);
+				console.log(dsaTime);
+				*/
 				ctx.setEchoDirections(dolp[0], dolp[1], eTmpT, dsaTime);
 				eTmpM.time.push(eTmpT);
 			}
-			//graficando mejor
+			//cambiando el fitness encontrado por el fitness vecino
+			if(minLoc.fitness<dolphins[i].neighborhood.fitness[0]){
+				dolphins[i].neighborhood.axys=minLoc.axys;
+				dolphins[i].neighborhood.fitness = minLoc.fitness;
+			}
+			
+			if(dolphins[i].individual.fitness>dolphins[i].neighborhood.fitness){
+				dolphins[i].individual.fitness=dolphins[i].neighborhood.fitness;
+				dolphins[i].individual.axys = dolphins[i].neighborhood.axys;
+			}
+			//graficando mejor(mas bajo)
 			ctx.setEchoDirectionsByMin(dolp[0], dolp[1], minLoc, dsaTime);
 			eTempAll.mDir.push(eTmpM);
 		}
 		E.push(eTempAll);
 	}
 	
+	console.log(dolphins);
+	/*
 	for(i = 0; i<dolphins.length; i++){
 		for(j = 0; j<dsaMDirection; j++){
 			for(k = 0; k<=dsaTime; k++){
@@ -120,8 +142,8 @@ searchPhase = function(){
 				}
 			}
 		}
-	}
-	console.log(E);
+	}*/
+	
 	
 	
 	

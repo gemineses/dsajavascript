@@ -115,7 +115,7 @@
 			ejeX = ((dolphins[i].dolp[0]*axisSize)/dMax[0])+axisSize;
 			ejeY = (((dolphins[i].dolp[1]*axisSize*-1)/dMax[1])+axisSize);
 			ctx.beginPath();
-			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
+			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual.fitness;
 			ctx.arc(ejeX, ejeY,5,0,2*Math.PI);
 			ctx.stroke();
 		}
@@ -167,10 +167,8 @@
 		for(i=0; i<dolK.length; i++){
 			for(j=0; j<dolK[i].M.length; j++){
 				for(k=0; k<dolK[i].M[j].length; k++){
-					//console.log(dolK[i].M[j][k]);
 					ctx.beginPath();
-					//console.log(dolphins[i].individual);
-					document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
+					document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual.fitness;
 					ctx.arc(((dolK[i].M[j][k][0])*div)+200,(((dolK[i].M[j][k][1]*div))*-1)+200,2,0,2*Math.PI);
 					ctx.stroke();
 				}
