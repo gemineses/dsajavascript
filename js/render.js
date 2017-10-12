@@ -134,13 +134,27 @@
 		ctx.lineTo((ecoMDir.axys[0]*div)+200, (ecoMDir.axys[1]*div*-1)+200);
 		ctx.stroke();
 		ctx.beginPath();
-		ctx.strokeStyle = '#ff0000';
+		ctx.strokeStyle = '#ff3333';
 		ctx.moveTo((ecoMDir.axys[0]*div)+200-4, (ecoMDir.axys[1]*div*-1)+200);
 		ctx.lineTo((ecoMDir.axys[0]*div)+200+4, (ecoMDir.axys[1]*div*-1)+200);
 		ctx.stroke();
 		
 	};
 	
+	ctx.setEchoDirectionsByMin = function (dolpX, dolpY, ecoMDir, time){
+		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
+		div = (diff/10)*40;
+		
+		//allpath
+		ctx.beginPath();
+		ctx.lineWidth=5;
+		ctx.strokeStyle = '#88ff00';
+		ctx.moveTo((ecoMDir.axys[0]*div)+200-4, (ecoMDir.axys[1]*div*-1)+200);
+		ctx.lineTo((ecoMDir.axys[0]*div)+200+4, (ecoMDir.axys[1]*div*-1)+200);
+		ctx.stroke();
+		ctx.lineWidth=1;
+		
+	};
 	
 	/*
 		Set K(neightboorhood) echo from dolphins ecolocations

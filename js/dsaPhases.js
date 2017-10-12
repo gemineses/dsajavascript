@@ -79,6 +79,7 @@ searchPhase = function(){
 			dolp = dolphins[i].dolp;
 			solution=[];
 			eTmpM = {"time":[]};
+			minTmp = 0;
 			for(k = 0; k<=dsaTime; k++){
 				eTmpT={"axys":[]};
 				for(l = 0; l<dolp.length; l++){
@@ -87,17 +88,41 @@ searchPhase = function(){
 				}
 				//tomando el fitness
 				eTmpT.fitness = fitnessFunction(eTmpT.axys);
+				//calculando el minimo
+				if(k==0){
+					min = eTmpT.fitness;
+					minLoc = eTmpT;
+				}
+				if(min>eTmpT.fitness){
+					minLoc = eTmpT;
+					min = eTmpT.fitness;
+				}
+				
 				//graficando todas las m direcciones
 				ctx.setEchoDirections(dolp[0], dolp[1], eTmpT, dsaTime);
 				eTmpM.time.push(eTmpT);
-				
 			}
+			//graficando mejor
+			ctx.setEchoDirectionsByMin(dolp[0], dolp[1], minLoc, dsaTime);
 			eTempAll.mDir.push(eTmpM);
 		}
 		E.push(eTempAll);
 	}
 	
+	for(i = 0; i<dolphins.length; i++){
+		for(j = 0; j<dsaMDirection; j++){
+			for(k = 0; k<=dsaTime; k++){
+				//console.log(dolphins[i]);
+				//min = dolphins[i].
+				for(l = 0; l<dolp.length; l++){
+				
+				
+				}
+			}
+		}
+	}
 	console.log(E);
+	
 	
 	
 	
