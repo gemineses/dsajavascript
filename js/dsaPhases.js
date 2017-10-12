@@ -66,28 +66,38 @@ searchPhase = function(){
 		}
 		v.push(sound);
 	}
-	console.log("v");
-	console.log(v);
 	
 	//new solution	
 	//console.log(dolphins);
+	//E is for temporal dolphins solutions(echo)
+	E = [];
 	for(i = 0; i<dolphins.length; i++){
 		contador=0;
+		eTempAll = {"mDir":[]}
 		for(j = 0; j<dsaMDirection; j++){
 			sound = v[j];
 			dolp = dolphins[i].dolp;
 			solution=[];
-			for(k = 0; k<dolp.length; k++){
+			eTmpM = {"time":[]};
+			for(k = 0; k<=dsaTime; k++){
+				eTmpT={"axys":[]};
+				for(l = 0; l<dolp.length; l++){
+					solutionNow = dolphins[i].dolp[l]+(sound[l]*dsaSpeed*k);
+					eTmpT.axys.push(solutionNow);
+				}
+				//tomando el fitness
+				eTmpT.fitness = fitnessFunction(eTmpT.axys);
+				//graficando todas las m direcciones
+				ctx.setEchoDirections(dolp[0], dolp[1], eTmpT, dsaTime);
+				eTmpM.time.push(eTmpT);
 				
-				solutionNow = dolphins[i].dolp[k]+(sound[k]*dsaSpeed*dsaTime);
-				//console.log(fitnessFunction(dolphins[i].dolp));
-				
-				solution.push(solutionNow);
 			}
-			ctx.setEchoDirections(dolp[0], dolp[1], solution[0], solution[1]);	
+			eTempAll.mDir.push(eTmpM);
 		}
+		E.push(eTempAll);
 	}
 	
+	console.log(E);
 	
 	
 	

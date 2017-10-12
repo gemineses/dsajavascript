@@ -114,7 +114,6 @@
 		for(i=0; i<dolphins.length; i++){
 			ejeX = ((dolphins[i].dolp[0]*axisSize)/dMax[0])+axisSize;
 			ejeY = (((dolphins[i].dolp[1]*axisSize*-1)/dMax[1])+axisSize);
-			console.log(ejeY);
 			ctx.beginPath();
 			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual;
 			ctx.arc(ejeX, ejeY,5,0,2*Math.PI);
@@ -124,14 +123,22 @@
 	};
 	
 	//echo directions
-	ctx.setEchoDirections = function (dolpX, dolpY, ecoX, ecoY){
+	ctx.setEchoDirections = function (dolpX, dolpY, ecoMDir, time){
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		
+		//allpath
 		ctx.beginPath();
+		ctx.strokeStyle = '#000000';
 		ctx.moveTo((dolpX*div)+200, (dolpY*div*-1)+200);
-		ctx.lineTo((ecoX*div)+200, (ecoY*div*-1)+200);
+		ctx.lineTo((ecoMDir.axys[0]*div)+200, (ecoMDir.axys[1]*div*-1)+200);
 		ctx.stroke();
+		ctx.beginPath();
+		ctx.strokeStyle = '#ff0000';
+		ctx.moveTo((ecoMDir.axys[0]*div)+200-4, (ecoMDir.axys[1]*div*-1)+200);
+		ctx.lineTo((ecoMDir.axys[0]*div)+200+4, (ecoMDir.axys[1]*div*-1)+200);
+		ctx.stroke();
+		
 	};
 	
 	
