@@ -107,20 +107,21 @@ searchPhase = function(){
 				}
 				
 				//graficando todas las m direcciones
-				ctx.setEchoDirections(dolp[0], dolp[1], eTmpT, dsaTime);
+				ctx.setEchoDirections(dolp[0], dolp[1], eTmpT);
 				eTmpM.time.push(eTmpT);
 			}
 			//cambiando el fitness encontrado por el fitness vecino
 			if(parseFloat(minLoc.fitness)<parseFloat(dolphins[i].neighborhood.fitness)){
 				dolphins[i].neighborhood.axys=minLoc.axys;
-				dolphins[i].neighborhood.fitness = minLoc.fitness;
+				dolphins[i].neighborhood.fitness = parseFloat(minLoc.fitness);
 			}
 			if(dolphins[i].individual.fitness>dolphins[i].neighborhood.fitness){
-				dolphins[i].individual.fitness=dolphins[i].neighborhood.fitness;
+				dolphins[i].individual.fitness=parseFloat(dolphins[i].neighborhood.fitness);
 				dolphins[i].individual.axys = dolphins[i].neighborhood.axys;
 			}
 			//graficando mejor(mas bajo)
-			ctx.setEchoDirectionsByMin(dolp[0], dolp[1], minLoc, dsaTime);
+			console.log(dsaTime);
+			ctx.setEchoDirectionsByMin(dolp[0], dolp[1], minLoc);
 			eTempAll.mDir.push(eTmpM);
 		}
 		
@@ -128,7 +129,21 @@ searchPhase = function(){
 	}
 	dolphinFieldDescription(dolphins);
 	
+	callPhase(dolphins[i].neighborhood, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
+};
+
+
+//callphase
+//calcula las posiciones de cada eco del delfin como [dol[x,y..], aceleracion*velocidad] y luego se actualiza si fiti>fitj y ts>posicion, esto para que no se salga
+callPhase = function(pos, max, min){
 	
-	
+	for(i = 0; i<dolphins.length; i++){
+		console.log(dolphins[i].neighborhood);
+		
+	}
+};
+
+//sirve para ver si no se sale de los rangos maximos y minimos
+receptionPhase = function(){
 	
 };

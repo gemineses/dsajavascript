@@ -123,7 +123,7 @@
 	};
 	
 	//echo directions
-	ctx.setEchoDirections = function (dolpX, dolpY, ecoMDir, time){
+	ctx.setEchoDirections = function (dolpX, dolpY, ecoMDir){
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		axisSize = canvas.width/2;
@@ -139,10 +139,10 @@
 		ctx.moveTo((ecoMDir.axys[0]*div)+200-4, (ecoMDir.axys[1]*div*-1)+200);
 		ctx.lineTo((ecoMDir.axys[0]*div)+200+4, (ecoMDir.axys[1]*div*-1)+200);
 		ctx.stroke();
-		
+		ctx.strokeStyle = '#000000';
 	};
 	
-	ctx.setEchoDirectionsByMin = function (dolpX, dolpY, ecoMDir, time){
+	ctx.setEchoDirectionsByMin = function (dolpX, dolpY, ecoMDir){
 		diff = dsaDimensionalSpaceMax[0]-dsaDimensionalSpaceMin[0];
 		div = (diff/10)*40;
 		
@@ -154,7 +154,7 @@
 		ctx.lineTo((ecoMDir.axys[0]*div)+200+4, (ecoMDir.axys[1]*div*-1)+200);
 		ctx.stroke();
 		ctx.lineWidth=1;
-		
+		ctx.strokeStyle = '#000000';
 	};
 	
 	/*
