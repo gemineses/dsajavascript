@@ -37,12 +37,14 @@
 				<input placeholder="dimensionalSpaceMin" id="dsaDimensionalSpaceMin" style="height: 1rem;" type="text" class="validate inputSmall" onchange="updateGraphic(); updateParams();">
 				<label class="active" for="dsaDolphinNumbers">Iteration</label>
 				<input placeholder="iteration" id="dsaIteration" type="text" class="validate inputSmall" onchange="updateParams()">
-				<label class="active" for="dsaDolphinNumbers">M Direction</label>
+				<label class="active" for="dsaDolphinNumbers">Eco M Directions</label>
 				<input placeholder="mDirection" id="dsaMDirection" type="text" class="validate inputSmall" onchange="updateParams()">
-				<label class="active" for="dsaDolphinNumbers">Speed</label>
+				<label class="active" for="dsaDolphinNumbers">Eco Speed</label>
 				<input placeholder="speed" id="dsaSpeed" type="text" class="validate inputSmall" onchange="updateParams()">
-				<label class="active" for="dsaDolphinNumbers">Time</label>
+				<label class="active" for="dsaDolphinNumbers">Eco Time</label>
 				<input placeholder="time" id="dsaTime" type="text" class="validate inputSmall" onchange="updateParams()">
+				<label class="active" for="dsaDolphinNumbers">Dolp Speed(Radius reduction coefficient)</label>
+				<input placeholder="time" id="dolpSpeed" type="text" class="validate inputSmall" onchange="updateParams()">
 				<label class="active" for="dsaDolphinNumbers">Max Fitness</label>
 				<input placeholder="maxFitnessValue" id="dsaMaxFitnessValue" type="text" class="validate inputSmall" onchange="updateParams()">
 				<label class="active" for="dsaDolphinNumbers">Max Search Time</label>
@@ -65,16 +67,16 @@
 					<a class="waves-effect waves-light btn" onclick="createDolphins()">Create Dolphins</a>
 				</div>
 				<div class="row">
-					<a class="waves-effect waves-light btn" onclick="searchPhase()">Search Phase</a>
+					<a class="waves-effect waves-light btn" onclick="searchPhase()">Search Phase(ECO)</a>
 				</div>
 				<div class="row">
 					<a class="waves-effect waves-light btn" onclick="callPhase()">Call Phase</a>
 				</div>
 				<div class="row">
-					<a class="waves-effect waves-light btn" onclick="searchPhase()">Reception Phase</a>
+					<a class="waves-effect waves-light btn" onclick="searchPhase()">Reception Phase(MOVE)</a>
 				</div>
 				<div class="row">
-					<a class="waves-effect waves-light btn" onclick="searchPhase()">Predation Phase</a>
+					<a class="waves-effect waves-light btn" onclick="searchPhase()">Predation Phase(GROUP)</a>
 				</div>
 				
 				<div class="row">

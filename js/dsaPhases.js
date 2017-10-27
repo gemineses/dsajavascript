@@ -124,20 +124,29 @@ searchPhase = function(){
 			ctx.setEchoDirectionsByMin(dolp[0], dolp[1], minLoc);
 			eTempAll.mDir.push(eTmpM);
 		}
-		
+		console.log();
 		E.push(eTempAll);
 	}
 	dolphinFieldDescription(dolphins);
 	
-	callPhase(dolphins[i].neighborhood, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
+	//callPhase(dolphins[i].neighborhood, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 };
 
 
 //callphase
-//calcula las posiciones de cada eco del delfin como [dol[x,y..], aceleracion*velocidad] y luego se actualiza si fiti>fitj y ts>posicion, esto para que no se salga
-callPhase = function(pos, max, min){
-	
+//calcula que las posiciones no se salgal de las dimensiones
+callPhase = function(){
 	for(i = 0; i<dolphins.length; i++){
+		console.log(dolphins[i]);
+		for(j = 0; j<dsaDimensionalSpaceMax.length; j++){
+			console.log(dsaDimensionalSpaceMax[j]);
+			console.log(dolphins[i].neighborhood.axys[j]);
+			if(dsaDimensionalSpaceMax[j]>=dolphins[i].neighborhood.axys[j] && dsaDimensionalSpaceMin[j]<=dolphins[i].neighborhood.axys[j]){
+				console.log("pasa");
+			}else{
+				console.log("no pasa");
+			}
+		}
 		console.log(dolphins[i].neighborhood);
 		
 	}
