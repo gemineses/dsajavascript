@@ -156,3 +156,19 @@ callPhase = function(){
 receptionPhase = function(){
 	
 };
+
+
+predationPhase = function(){
+	r = 0;
+	t1 = 0;
+	for(i = 0; i<dolphins.length; i++){
+		console.log(dolphins[i]);
+		for(j = 0; j<dolphins[i].neighborhood.axys.length; j++){
+			movSpeed = (1-(2/dolpSpeed))*dolphins[i].neighborhood.axys[j];
+			console.log(movSpeed);
+		}
+		
+	}
+	
+	movSpeed = (1-(2/dolpSpeed))*dk;
+};
