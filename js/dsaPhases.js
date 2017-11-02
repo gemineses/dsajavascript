@@ -162,13 +162,23 @@ predationPhase = function(){
 	r = 0;
 	t1 = 0;
 	for(i = 0; i<dolphins.length; i++){
-		console.log(dolphins[i]);
+		console.log("-----1111-------------");
 		for(j = 0; j<dolphins[i].neighborhood.axys.length; j++){
+			if(){
+				//case 1	
+			}else if(){
+				//case 2
+			}else if(){
+				//case 3
+			}
+			
 			movSpeed = (1-(2/dolpSpeed))*dolphins[i].neighborhood.axys[j];
-			console.log(movSpeed);
+			console.log((1-(2/dolpSpeed)));
+			//console.log(dolphins[i].neighborhood.axys[j]);
+			//console.log(movSpeed);
 		}
 		
 	}
 	
-	movSpeed = (1-(2/dolpSpeed))*dk;
+	//movSpeed = (1-(2/dolpSpeed))*dk;
 };
