@@ -32,11 +32,11 @@ function createDolphins(){
 		}
 	
 		//creatingIndividualOptimalSolution
-		dolp.individual.fitness = fitnessFunction(dolp.dolp);
+		dolp.individual.fitness = parseFloat(fitnessFunction(dolp.dolp));
 		dolp.individual.axys=dolp.dolp;
 		
 		fitByDolp.push(fitnessFunction(dolp.dolp));
-		dolp.firstFitness = fitnessFunction(dolp.dolp);
+		dolp.firstFitness = parseFloat(fitnessFunction(dolp.dolp));
 		
 		//creatingNeighborhoodOptimalSolution   
 		dolp.neighborhood.fitness = fitnessFunction(dolp.dolp);
@@ -116,8 +116,8 @@ searchPhase = function(){
 				dolphins[i].neighborhood.fitness = parseFloat(minLoc.fitness);
 			}
 			if(dolphins[i].individual.fitness>dolphins[i].neighborhood.fitness){
-				dolphins[i].individual.fitness=parseFloat(dolphins[i].neighborhood.fitness);
-				dolphins[i].individual.axys = dolphins[i].neighborhood.axys;
+				//dolphins[i].individual.fitness=parseFloat(dolphins[i].neighborhood.fitness);
+				//dolphins[i].individual.axys = dolphins[i].neighborhood.axys;
 			}
 			//graficando mejor(mas bajo)
 			console.log(dsaTime);
@@ -134,27 +134,40 @@ searchPhase = function(){
 
 
 //callphase
-//calcula que las posiciones no se salgal de las dimensiones
+//se decide cual es el minimo
+minCallPhase = 0;
+minDolphinCallPhase = 0;
 callPhase = function(){
+	minCallPhase = 0;
+	minDolphinCallPhase = 0;
+	neighborhood = false;
 	for(i = 0; i<dolphins.length; i++){
-		console.log(dolphins[i]);
-		for(j = 0; j<dsaDimensionalSpaceMax.length; j++){
-			console.log(dsaDimensionalSpaceMax[j]);
-			console.log(dolphins[i].neighborhood.axys[j]);
-			if(dsaDimensionalSpaceMax[j]>=dolphins[i].neighborhood.axys[j] && dsaDimensionalSpaceMin[j]<=dolphins[i].neighborhood.axys[j]){
-				console.log("pasa");
-			}else{
-				console.log("no pasa");
-			}
+		//first iteration get first dolphin fitness
+		if(i==0){
+			minCallPhase = dolphins[i].individual.fitness;	
 		}
-		console.log(dolphins[i].neighborhood);
 		
+		if(minCallPhase>dolphins[i].neighborhood.fitness){
+			neighborhood = true;
+			minCallPhase = dolphins[i].neighborhood.fitness;
+			minDolphinCallPhase = i;
+		}else{
+			
+		}
 	}
+	//printing
+	ctx.setBestFitnessFound(dolphins[minDolphinCallPhase].neighborhood, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
+	
 };
 
 //sirve para ver si no se sale de los rangos maximos y minimos
 receptionPhase = function(){
+	console.log(minCallPhase);
+	console.log(minDolphinCallPhase);
 	
+	for(i = 0; i<dolphins.length; i++){
+		console.log("");
+	}
 };
 
 
@@ -164,13 +177,13 @@ predationPhase = function(){
 	for(i = 0; i<dolphins.length; i++){
 		console.log("-----1111-------------");
 		for(j = 0; j<dolphins[i].neighborhood.axys.length; j++){
-			if(){
-				//case 1	
+			/*if(){
+				//case 1
 			}else if(){
 				//case 2
 			}else if(){
 				//case 3
-			}
+			}*/
 			
 			movSpeed = (1-(2/dolpSpeed))*dolphins[i].neighborhood.axys[j];
 			console.log((1-(2/dolpSpeed)));

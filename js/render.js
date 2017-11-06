@@ -157,6 +157,26 @@
 		ctx.strokeStyle = '#000000';
 	};
 	
+	
+	ctx.setBestFitnessFound = function(dolphin, dMax, dMin){
+		diff = dMax[0]-dMin[0];
+		div = (diff/10)*40;
+		axisSize = canvas.width/2;
+		
+		console.log(dolphin.axys);
+		
+		ejeX = ((dolphin.axys[0]*axisSize)/dMax[0])+axisSize;
+		ejeY = (((dolphin.axys[1]*axisSize*-1)/dMax[1])+axisSize);
+		ctx.beginPath();
+		ctx.strokeStyle = '#88ff00';
+		ctx.arc(ejeX, ejeY,10,0,2*Math.PI);
+		ctx.strokeStyle = '#000000';
+		ctx.stroke();
+	
+		
+	};
+	
+	
 	/*
 		Set K(neightboorhood) echo from dolphins ecolocations
 		
