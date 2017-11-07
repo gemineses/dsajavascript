@@ -86,9 +86,9 @@ function updateParams(){
 	}
 	dsaIteration = document.getElementById("dsaIteration").value;
 	dsaMDirection = document.getElementById("dsaMDirection").value;
-	dsaSpeed = document.getElementById("dsaSpeed").value;
+	dsaSpeed = parseFloat(document.getElementById("dsaSpeed").value);
 	dsaTime = document.getElementById("dsaTime").value;
-	dolpSpeed = document.getElementById("according").value;
+	dolpSpeed = parseFloat(document.getElementById("dolpSpeed").value);
 	dsaMaxFitnessValue = document.getElementById("dsaMaxFitnessValue").value;
 	dsaMaximumSearchTime = document.getElementById("dsaMaximumSearchTime").value;
 };

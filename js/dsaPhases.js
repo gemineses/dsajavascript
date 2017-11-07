@@ -161,37 +161,43 @@ callPhase = function(){
 };
 
 //sirve para ver si no se sale de los rangos maximos y minimos
+movByDolp = [];
 receptionPhase = function(){
-	console.log(minCallPhase);
-	console.log(minDolphinCallPhase);
-	
+	movByDolp = [];	
 	for(i = 0; i<dolphins.length; i++){
-		console.log("");
+		movAxysDolp = [];
+		for(j = 0; j<dolphins[i].dolp.length; j++){
+			//obtiene la diferencia entre el delfin y el lugar donde se encontro el fitness global
+			diffDolpToFitness = dolphins[i].dolp[j]-dolphins[minDolphinCallPhase].neighborhood.axys[j];
+			console.log("verificar si es negativo o positivo el movmiento");
+			//al resultado de arriba se divide entre el fitness local
+			mov = diffDolpToFitness/((dolphins[i].dolp[j]-dolphins[i].neighborhood.axys[j]));
+			//movimiento mas velocidad de delfin
+			if(mov == "Infinity" || mov == "-Infinity"){
+				mov = 0;
+			}
+			movAxysDolp.push(mov*dolpSpeed);
+		}
+		movByDolp.push(movAxysDolp);
 	}
 };
 
 
 predationPhase = function(){
-	r = 0;
-	t1 = 0;
+	console.log(movByDolp);
 	for(i = 0; i<dolphins.length; i++){
-		console.log("-----1111-------------");
 		for(j = 0; j<dolphins[i].neighborhood.axys.length; j++){
-			/*if(){
-				//case 1
-			}else if(){
-				//case 2
-			}else if(){
-				//case 3
-			}*/
-			
-			movSpeed = (1-(2/dolpSpeed))*dolphins[i].neighborhood.axys[j];
-			console.log((1-(2/dolpSpeed)));
-			//console.log(dolphins[i].neighborhood.axys[j]);
-			//console.log(movSpeed);
-		}
-		
+			console.log("esto " + dolphins[i].individual.axys[j] + " por esto "+ movByDolp[i][j]+" mas esto "+dolphins[i].individual.axys[j]);
+			//console.log(movByDolp[i][j]);
+			dolphins[i].individual.axys[j] = movByDolp[i][j];
+			//dolphins[i].individual.axys[j] = dolphins[i].individual.axys[j]+movByDolp[i][j];
+		}		
 	}
-	
-	//movSpeed = (1-(2/dolpSpeed))*dk;
+	console.log(dolphins);
+	/*ctx.clear();
+	ctx.rulerInside(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
+	ctx.setDolphins(dolphins, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);*/
 };
+
+
+

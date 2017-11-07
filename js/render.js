@@ -105,7 +105,7 @@
 		Set dolphins functions (Dolphins object)
 		Paint the dolphins in the canvas
 	*/
-	ctx.setDolphins = function(dolphins, dMax, dMin){
+	ctx.moveDolphins = function(dolphins, dMax, dMin){
 		diff = dMax[0]-dMin[0];
 		div = (diff/10)*40;
 		axisSize = canvas.width/2;
@@ -114,6 +114,22 @@
 		for(i=0; i<dolphins.length; i++){
 			ejeX = ((dolphins[i].dolp[0]*axisSize)/dMax[0])+axisSize;
 			ejeY = (((dolphins[i].dolp[1]*axisSize*-1)/dMax[1])+axisSize);
+			ctx.beginPath();
+			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual.fitness;
+			ctx.arc(ejeX, ejeY,5,0,2*Math.PI);
+			ctx.stroke();
+		}
+	};
+	
+	ctx.setDolphins = function(dolphins, dMax, dMin){
+		diff = dMax[0]-dMin[0];
+		div = (diff/10)*40;
+		axisSize = canvas.width/2;
+		
+		
+		for(i=0; i<dolphins.length; i++){
+			ejeX = ((dolphins[i].individual.axys[0]*axisSize)/dMax[0])+axisSize;
+			ejeY = (((dolphins[i].individual.axys[1]*axisSize*-1)/dMax[1])+axisSize);
 			ctx.beginPath();
 			document.getElementById("dolphinsText").value=document.getElementById("dolphinsText").value+", "+dolphins[i].individual.fitness;
 			ctx.arc(ejeX, ejeY,5,0,2*Math.PI);
