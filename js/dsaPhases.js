@@ -168,8 +168,14 @@ receptionPhase = function(){
 		movAxysDolp = [];
 		for(j = 0; j<dolphins[i].dolp.length; j++){
 			//obtiene la diferencia entre el delfin y el lugar donde se encontro el fitness global
-			diffDolpToFitness = dolphins[i].dolp[j]-dolphins[minDolphinCallPhase].neighborhood.axys[j];
-			console.log("verificar si es negativo o positivo el movmiento");
+			diffDolpToFitness = dolphins[minDolphinCallPhase].neighborhood.axys[j]-dolphins[i].dolp[j];
+			console.log(diffDolpToFitness);
+			if(diffDolpToFitness>0){						
+				
+				console.log("positivo");
+			}else{
+				console.log("negativo");
+			}
 			//al resultado de arriba se divide entre el fitness local
 			mov = diffDolpToFitness/((dolphins[i].dolp[j]-dolphins[i].neighborhood.axys[j]));
 			//movimiento mas velocidad de delfin
