@@ -77,6 +77,7 @@ searchPhase = function(){
 	contador=0;
 	neigh = false;
 	for(i = 0; i<dolphins.length; i++){
+		//console.log(dolphins[i].dolp);
 		eTempAll = {"mDir":[]};
 		for(j = 0; j<dsaMDirection; j++){
 			sound = v[j];
@@ -129,12 +130,14 @@ searchPhase = function(){
 		
 		////////////revisar por que esto va dentro del ciclo
 		if(!neigh){
-			console.log("no hay mejora");
+			//console.log("no hay mejora");
+			//console.log(dolphins[i].neighborhood.axys);
 			dolphins[i].neighborhood.axys=dolphins[i].individual.axys;
 			dolphins[i].neighborhood.fitness = parseFloat(dolphins[i].individual.fitness);
 		}
+		//console.log(dolphins[i].dolp);
 		neigh = false;
-		console.log();
+		
 		E.push(eTempAll);
 	}
 	dolphinFieldDescription(dolphins);
@@ -178,15 +181,14 @@ receptionPhase = function(){
 		movAxysDolp = [];
 		for(j = 0; j<dolphins[i].dolp.length; j++){
 			//obtiene la diferencia entre el delfin y el lugar donde se encontro el fitness global
-			diffDolpToFitness = dolphins[minDolphinCallPhase].neighborhood.axys[j]-dolphins[i].dolp[j];
+			diffDolpToFitness = parseFloat(dolphins[minDolphinCallPhase].neighborhood.axys[j]-dolphins[i].dolp[j]);
 			//al resultado de arriba se divide entre el fitness local
-			mov = diffDolpToFitness/((dolphins[i].individual.axys[j]-dolphins[i].neighborhood.axys[j]));
-			
+			mov = diffDolpToFitness*(1/dolpSpeed);
 			//movimiento mas velocidad de delfin
-			if(mov == "Infinity" || mov == "-Infinity"){
+			if(mov == "Infinity" || mov == "-Infinity" || mov == "NaN"){
 				mov = 0;
 			}
-			movAxysDolp.push(mov*dolpSpeed);
+			movAxysDolp.push(mov);
 		}
 		movByDolp.push(movAxysDolp);
 	}
@@ -197,16 +199,15 @@ predationPhase = function(){
 	console.log(movByDolp);
 	for(i = 0; i<dolphins.length; i++){
 		for(j = 0; j<dolphins[i].neighborhood.axys.length; j++){
-			console.log("esto " + dolphins[i].individual.axys[j] + " por esto "+ movByDolp[i][j]+" mas esto "+dolphins[i].individual.axys[j]);
 			mov = movByDolp[i][j]+dolphins[i].individual.axys[j];
-			if(mov>dsaDimensionalSpaceMax[j] || mov<dsaDimensionalSpaceMin[j]){
-				console.log("no se mueve");
+			if(mov>dsaDimensionalSpaceMax[j] || mov<dsaDimensionalSpaceMin[j] || mov == "NaN"){
 			}else{
-				dolphins[i].individual.axys[j] = mov;	
+				//console.log("esto " + dolphins[i].individual.axys[j] + " con "+ movByDolp[i][j]+" se mueve a "+mov);
+				dolphins[i].individual.axys[j] = mov;
 			}
 		}		
 	}
-	console.log(dolphins);
+	
 	ctx.clear();
 	ctx.rulerInside(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 	ctx.setDolphins(dolphins, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
