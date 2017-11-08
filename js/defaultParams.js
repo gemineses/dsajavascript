@@ -71,8 +71,8 @@ document.getElementById("dsaMaximumSearchTime").value=dsaMaximumSearchTime;
 fitnessFunctionList = [1,2,3,4,5,6,7,8,9,10];
 
 function updateParams(){
-	dsaDolphinNumbers = document.getElementById("dsaDolphinNumbers").value;
-	fitnessSelected = document.getElementById("dsaFitnessFunction").value;
+	dsaDolphinNumbers = parseInt(document.getElementById("dsaDolphinNumbers").value);
+	fitnessSelected = parseInt(document.getElementById("dsaFitnessFunction").value);
 	dsaDimensionalSpaceMax = document.getElementById("dsaDimensionalSpaceMax").value;
 	dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
 	//parse to float
@@ -84,7 +84,7 @@ function updateParams(){
 	for(i = 0; i<dsaDimensionalSpaceMin.length; i++){
 		dsaDimensionalSpaceMin[i] = parseFloat(dsaDimensionalSpaceMin[i]);
 	}
-	dsaIteration = document.getElementById("dsaIteration").value;
+	dsaIteration = parseInt(document.getElementById("dsaIteration").value);
 	dsaMDirection = document.getElementById("dsaMDirection").value;
 	dsaSpeed = parseFloat(document.getElementById("dsaSpeed").value);
 	dsaTime = document.getElementById("dsaTime").value;

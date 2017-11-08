@@ -47,12 +47,13 @@ function createDolphins(){
 	ctx.rulerInside(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 	ctx.setDolphins(dolphins, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 	dolphinFieldDescription(dolphins);
+	
 }
 
 
 //search  phase
 
-searchPhase = function(){
+searchPhase = function(callback){
 	v = [];
 	
 	//loop by number of directions
@@ -71,13 +72,11 @@ searchPhase = function(){
 	}
 	
 	//new solution	
-	//console.log(dolphins);
 	//E is for temporal dolphins solutions(echo)
 	E = [];
 	contador=0;
 	neigh = false;
 	for(i = 0; i<dolphins.length; i++){
-		//console.log(dolphins[i].dolp);
 		eTempAll = {"mDir":[]};
 		for(j = 0; j<dsaMDirection; j++){
 			sound = v[j];
@@ -131,7 +130,6 @@ searchPhase = function(){
 		////////////revisar por que esto va dentro del ciclo
 		if(!neigh){
 			//console.log("no hay mejora");
-			//console.log(dolphins[i].neighborhood.axys);
 			dolphins[i].neighborhood.axys=dolphins[i].individual.axys;
 			dolphins[i].neighborhood.fitness = parseFloat(dolphins[i].individual.fitness);
 		}
@@ -143,6 +141,10 @@ searchPhase = function(){
 	dolphinFieldDescription(dolphins);
 	
 	//callPhase(dolphins[i].neighborhood, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
+	if(callback!=0){
+		callback();	
+	}
+	
 };
 
 
@@ -150,7 +152,7 @@ searchPhase = function(){
 //se decide cual es el minimo
 minCallPhase = 0;
 minDolphinCallPhase = 0;
-callPhase = function(){
+callPhase = function(callback){
 	minCallPhase = 0;
 	minDolphinCallPhase = 0;
 	neighborhood = false;
@@ -170,12 +172,14 @@ callPhase = function(){
 	}
 	//printing
 	ctx.setBestFitnessFound(dolphins[minDolphinCallPhase].neighborhood, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
-	
+	if(callback!=0){
+		callback();	
+	}
 };
 
 //sirve para ver si no se sale de los rangos maximos y minimos
 movByDolp = [];
-receptionPhase = function(){
+receptionPhase = function(callback){
 	movByDolp = [];	
 	for(i = 0; i<dolphins.length; i++){
 		movAxysDolp = [];
@@ -192,11 +196,14 @@ receptionPhase = function(){
 		}
 		movByDolp.push(movAxysDolp);
 	}
+	if(callback!=0){
+		callback();	
+	}
 };
 
 
-predationPhase = function(){
-	console.log(movByDolp);
+predationPhase = function(callback){
+	//console.log(movByDolp);
 	for(i = 0; i<dolphins.length; i++){
 		for(j = 0; j<dolphins[i].neighborhood.axys.length; j++){
 			mov = movByDolp[i][j]+dolphins[i].individual.axys[j];
@@ -205,13 +212,33 @@ predationPhase = function(){
 				//console.log("esto " + dolphins[i].individual.axys[j] + " con "+ movByDolp[i][j]+" se mueve a "+mov);
 				dolphins[i].individual.axys[j] = mov;
 			}
-		}		
+		}
+		//dolphinFieldDescription(dolphins);
+		console.log(fitnessFunction(dolphins[i].individual.axys));
 	}
+	
 	
 	ctx.clear();
 	ctx.rulerInside(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 	ctx.setDolphins(dolphins, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
+	if(callback!=0){
+		callback();	
+	}
 };
 
-
+run = function(){
+	createDolphins();
+	for(iRun = 0; iRun<dsaIteration; iRun++){
+		searchPhase(function(){
+			callPhase(function(){
+				receptionPhase(function(){
+					predationPhase(function(){
+						console.log(iRun);
+					});
+				});
+			});
+		});
+		//searchPhase(callPhase(receptionPhase(predationPhase())));
+	}
+}
 

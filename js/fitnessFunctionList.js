@@ -21,8 +21,8 @@ fitnessFunction = function(x){
                 maxFitnessValue = 60;
                 sum = 0;
                 suma = 0;
-                for(i = 0; i<x.length; i++){
-                    suma = Math.pow(x[i].toFixed(toFixedMax), 2);
+                for(iFF = 0; iFF<x.length; iFF++){
+                    suma = Math.pow(x[iFF].toFixed(toFixedMax), 2);
                     sum = sum + suma;
                 }
                 console.log("fitness sphere result = "+sum.toFixed(toFixedMax));
@@ -30,7 +30,7 @@ fitnessFunction = function(x){
 			case 4://f=100*(x(:,2).^2-x(:,1)).^2 + (1-x(:,1)).^2;
 				sum = 0;
 				suma = 0;
-				for(i = 0; i<x.length; i++){
+				for(iFF = 0; iFF<x.length; iFF++){
 					console.log();
 				}
 			break;
