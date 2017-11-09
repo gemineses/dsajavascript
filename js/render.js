@@ -179,7 +179,7 @@
 		div = (diff/10)*40;
 		axisSize = canvas.width/2;
 		
-		console.log(dolphin.axys);
+		//console.log(dolphin.axys);
 		
 		ejeX = ((dolphin.axys[0]*axisSize)/dMax[0])+axisSize;
 		ejeY = (((dolphin.axys[1]*axisSize*-1)/dMax[1])+axisSize);

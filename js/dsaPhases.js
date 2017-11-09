@@ -214,7 +214,7 @@ predationPhase = function(callback){
 			}
 		}
 		//dolphinFieldDescription(dolphins);
-		console.log(fitnessFunction(dolphins[i].individual.axys));
+		//console.log(fitnessFunction(dolphins[i].individual.axys));
 	}
 	
 	
@@ -222,8 +222,10 @@ predationPhase = function(callback){
 	ctx.rulerInside(dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 	ctx.setDolphins(dolphins, dsaDimensionalSpaceMax, dsaDimensionalSpaceMin);
 	if(callback!=0){
-		callback();	
+		callback();
 	}
+
+	inputTextToPrint(dolphins);
 };
 
 run = function(){
