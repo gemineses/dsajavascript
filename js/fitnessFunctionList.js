@@ -20,16 +20,20 @@ fitnessFunction = function(x){
             case 3://f=x(:,1).^2+x(:,2).^2;
 				if(x.length<2){
 					alert("Se requiere mas de 1 dimension");
+					sum = 0;
+				}else{
+					sum = (Math.pow(x[0].toFixed(toFixedMax), 2))-(Math.pow(x[1].toFixed(toFixedMax), 2));
 				}
-				sum = (Math.pow(x[0].toFixed(toFixedMax), 2))-(Math.pow(x[1].toFixed(toFixedMax), 2));
             break;
 			case 4://f=100*(x(:,2).^2-x(:,1)).^2 + (1-x(:,1)).^2;
 				sum = 0;
 				suma = 0;
 				if(x.length<2){
 					alert("Se requiere mas de 1 dimension");
+					sum = 0;
+				}else{
+					sum = 100 * (((Math.pow(x[1].toFixed(toFixedMax), 2))-(Math.pow(x[0].toFixed(toFixedMax), 2))) + (1-(Math.pow(x[0].toFixed(toFixedMax), 2))));
 				}
-				sum = 100 * (((Math.pow(x[1].toFixed(toFixedMax), 2))-(Math.pow(x[0].toFixed(toFixedMax), 2))) + (1-(Math.pow(x[0].toFixed(toFixedMax), 2))));
 			break;
 			case 5://f(:,1)=sum(abs(x')-10*cos(sqrt(abs(10*x'))))';
 				sumTmpOne = [];
@@ -45,9 +49,21 @@ fitnessFunction = function(x){
 			break;
 			case 7:
 				//f=x(:,1).*sin(4*x(:,1))+1.1*x(:,2).*sin(2*x(:,2));
+				if(dsaDimensionalSpaceMin[0]<1 || dsaDimensionalSpaceMin[1]<1){
+					alert("dimension minima de [1, 1]");
+					sum = 0;
+				}else{
+					sum = (x[0]*Math.sin(4*x[0]))+((1.1)*x[1]*Math.sin(2*x[1]));
+				}				
 			break;
 			case 8:
-				//f=x(:,2).*sin(4*x(:,1))+1.1*x(:,1).*sin(2*x(:,2));        
+				//f=x(:,2).*sin(4*x(:,1))+1.1*x(:,1).*sin(2*x(:,2));
+				if(dsaDimensionalSpaceMin[0]<1 || dsaDimensionalSpaceMin[1]<1){
+					alert("dimension minima de [1, 1]");
+					sum = 0;
+				}else{
+					sum = (x[1]*Math.sin(4*x[0]))+((1.1)*x[0]*Math.sin(2*x[1]));
+				}				
 			break;
 			case 9:
 				//f(:,1)=x(:,1).^4+2*x(:,2).^4+randn(length(x(:,1)),1); 
