@@ -229,6 +229,7 @@ predationPhase = function(callback){
 };
 
 run = function(){
+	newText();
 	createDolphins();
 	for(iRun = 0; iRun<dsaIteration; iRun++){
 		searchPhase(function(){
@@ -245,6 +246,7 @@ run = function(){
 }
 
 runSlow = function(){
+	newText();
 	createDolphins();
 	sleep = 0;
 	stop = setInterval(function(){

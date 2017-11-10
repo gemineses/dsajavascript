@@ -16,6 +16,10 @@ inputTextToPrint = function(text){
 	
 };
 
+newText = function(){
+	totalTextToPrint = "";
+};
+
 outputTextToPrint = function(){
 	//console.log(totalTextToPrint);	
 	/*var encodedUri = encodeURI(totalTextToPrint);
