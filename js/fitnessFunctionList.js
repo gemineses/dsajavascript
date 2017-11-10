@@ -18,23 +18,21 @@ fitnessFunction = function(x){
 				sum = Math.abs(x[0].toFixed(toFixedMax))+Math.sin(x[0].toFixed(toFixedMax));
 			break;
             case 3://f=x(:,1).^2+x(:,2).^2;
-                maxFitnessValue = 60;
-                sum = 0;
-                suma = 0;
-                for(iFF = 0; iFF<x.length; iFF++){
-                    suma = Math.pow(x[iFF].toFixed(toFixedMax), 2);
-                    sum = sum + suma;
-                }
-                console.log("fitness sphere result = "+sum.toFixed(toFixedMax));
+				if(x.length<2){
+					alert("Se requiere mas de 1 dimension");
+				}
+				sum = (Math.pow(x[0].toFixed(toFixedMax), 2))-(Math.pow(x[1].toFixed(toFixedMax), 2));
             break;
 			case 4://f=100*(x(:,2).^2-x(:,1)).^2 + (1-x(:,1)).^2;
 				sum = 0;
 				suma = 0;
-				for(iFF = 0; iFF<x.length; iFF++){
-					console.log();
+				if(x.length<2){
+					alert("Se requiere mas de 1 dimension");
 				}
+				sum = 100 * (((Math.pow(x[1].toFixed(toFixedMax), 2))-(Math.pow(x[0].toFixed(toFixedMax), 2))) + (1-(Math.pow(x[0].toFixed(toFixedMax), 2))));
 			break;
 			case 5:
+				f(:,1)=sum(abs(x')-10*cos(sqrt(abs(10*x'))))'; 
 			break;
 			case 6:
 			break;
