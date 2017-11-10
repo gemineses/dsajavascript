@@ -32,19 +32,16 @@ fitnessFunction = function(x){
 				sum = 100 * (((Math.pow(x[1].toFixed(toFixedMax), 2))-(Math.pow(x[0].toFixed(toFixedMax), 2))) + (1-(Math.pow(x[0].toFixed(toFixedMax), 2))));
 			break;
 			case 5://f(:,1)=sum(abs(x')-10*cos(sqrt(abs(10*x'))))';
-				//sum = (Math.abs(x[0]))-(10*Math.cos(Math.sqrt(Math.abs(10*x[0]))));
 				sumTmpOne = [];
 				for(iifit = 0; iifit<x.length; iifit++){
 					sumTmpOne.push(Math.abs(x[iifit])-10*Math.cos(Math.sqrt(Math.abs(10*x[iifit]))));
 				}
-				console.log(sumTmpOne);
 				for(iifit = 0; iifit<sumTmpOne.length; iifit++){
 					sum = sum + sumTmpOne[iifit];
 				}
-				console.log(sum);
 			break;
-			case 6:
-				//f=(x.^2+x).*cos(x);   
+			case 6://f=(x.^2+x).*cos(x);
+				sum = (Math.pow(x[0], 2)+x[0])*Math.cos(x[0]);
 			break;
 			case 7:
 				//f=x(:,1).*sin(4*x(:,1))+1.1*x(:,2).*sin(2*x(:,2));

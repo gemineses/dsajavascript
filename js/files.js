@@ -28,7 +28,7 @@ outputTextToPrint = function(){
 	
 	
 	var blob = new Blob([totalTextToPrint], {type: 'text/csv'});
-	var filename =  "resultados.csv";
+	var filename =  "resultadosConFxn"+document.getElementById('dsaFitnessFunction').value+".csv";
 	if(window.navigator.msSaveOrOpenBlob) {
 		window.navigator.msSaveBlob(blob, filename);
 	}
