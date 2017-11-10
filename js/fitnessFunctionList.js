@@ -66,16 +66,39 @@ fitnessFunction = function(x){
 				}				
 			break;
 			case 9:
-				//f(:,1)=x(:,1).^4+2*x(:,2).^4+randn(length(x(:,1)),1); 
+				alert("aun en desarrollo");
+				sum = 0;
+				//f(:,1)=x(:,1).^4+2*x(:,2).^4+randn(length(x(:,1)),1);
+				//sum = (Math.pow(x[0], 4)+2*(Math.pow(x[1], 4))+(Math.random() * 1);
 			break;
 			case 10:
 				//f(:,1)=20+sum(x'.^2-10*cos(2*pi*x'))'; 
+				sumTmpOne = [];
+				for(iifit = 0; iifit<x.length; iifit++){
+					sumTmpOne.push(Math.pow(x[iifit], 2)-10*(Math.cos(2*Math.PI*x[iifit])));
+				}
+				for(iifit = 0; iifit<x.length; iifit++){
+					sum = sum + sumTmpOne[iifit];
+				}
+				sum = 20 + sum;
 			break;
 			case 11:
+				alert("aun en desarrollo");
+				sum = 0;
+				/*
 				//f(:,1)=1+sum(abs(x').^2/4000)'-prod(cos(x'))'; 
+				sumTmpOne = [];
+				for(iifit = 0; iifit<x.length; iifit++){
+					sumTmpOne.push(Math.pow(Math.abs(x[iifit]), 2)/4000-);
+				}
+				for(iifit = 0; iifit<x.length; iifit++){
+					sum = sum + sumTmpOne[iifit];
+				}
+				sum = 20 + sum;*/
+				//-------------agregar prod
 			break;
 			case 12:
-				//f(:,1)=.5+(sin(sqrt(x(:,1).^2+x(:,2).^2).^2)-.5)./(1+.1*(x(:,1).^2+x(:,2).^2)); 
+				//f(:,1)=.5+(sin(sqrt(x(:,1).^2+x(:,2).^2).^2)-.5)./(1+.1*(x(:,1).^2+x(:,2).^2));
 			break;
 			case 13:
 			break;
