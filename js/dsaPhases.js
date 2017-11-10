@@ -244,3 +244,54 @@ run = function(){
 	}
 }
 
+runSlow = function(){
+	createDolphins();
+	sleep = 0;
+	stop = setInterval(function(){
+		searchPhase(function(){
+			callPhase(function(){
+				receptionPhase(function(){
+					predationPhase(function(){
+						console.log(sleep);
+					});
+				});
+			});
+		})
+		if(sleep>(dsaIteration-2)){
+			clearInterval(stop);
+		}
+		sleep++;
+	}, 1000);
+		//searchPhase(callPhase(receptionPhase(predationPhase())));
+	
+}
+
+/*
+runByPhase = function(){
+	createDolphins();
+	sleep = 0;
+	stopOne = setInterval(function(){
+		searchPhase(function(){
+			stopTwo = setInterval(function() {
+				callPhase(function(){
+					stopThree = setInterval(function(){
+						receptionPhase(function(){
+							predationPhase(function(){
+								console.log(sleep);
+							});
+						});
+						clearInterval(stopThree);
+					}
+					, 1000);
+						
+				})
+				clearInterval(stopTwo);
+			}, 1000)
+		});
+		if(sleep>(dsaIteration-2)){
+			clearInterval(stopOne);
+		}
+		sleep++;
+	}, 1000);
+		//searchPhase(callPhase(receptionPhase(predationPhase())));
+}*/
