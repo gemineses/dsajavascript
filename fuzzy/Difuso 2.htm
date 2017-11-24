@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Fuzzy Logic</title>
+</head>
+<script src="presentation.js"></script>
+<script src="raphael-min.js"></script>
+<body onLoad="presentation();">
+<h1>Input Variables:</h1>
+<div id="variables_input"></div>
+<hr>
+<h1>Output Variables:</h1>
+<div id="variable_output"></div>
+<hr>
+<h1>Inferences:</h1>
+<div id="inferences"></div>
+<hr>
+<h1>Input:</h1>
+<div id="input"></div>
+<hr>
+<input type="button" value="Calculate" onClick="document.getElementById('result').innerHTML='Result: '+fl.getResult(obj);">
+<span id="result"></span>
+<div id="draw_result"></div>
+<script src="../js/fuzzy-min.js"></script>
+<script>
+	ite = 400;
+	//tiene que sumar el 100%
+	
+	itePorBaja = .10;
+	iteCalBaja = ite * itePorBaja+itePorBaja;
+	console.log(iteCalBaja);
+	itePorMedia = .30;
+	iteCalMedia = (ite * itePorMedia) + iteCalBaja; 
+	console.log(iteCalMedia);
+	itePorAlta = .30;
+	iteCalAlta = (ite * itePorAlta) + iteCalMedia;
+	console.log(iteCalAlta);
+	
+	
+	var obj = {
+		crisp_input: [10, 10, 10],
+		variables_input: [
+			{
+				name: "Error",
+				setsName: ["Low", "Okay", "Loads"],
+				sets: [
+					[0,0,0,10],
+					[0,10,10,30],
+					[10,30,40,40]
+				]
+			},
+			{
+				name: "Diferencia del error",
+				setsName: ["Light", "Medium", "Heavy"],
+				sets: [
+					[0,0,0,10],
+					[0,10,10,30],
+					[10,30,40,40]
+				]
+			}
+		],
+		variable_output: {
+			name: "Velocidad del delfin",
+			setsName: ["Muy Lento", "Lento", "Rapido"],
+			sets: [
+				[0,0,25,50],
+				[25,50,50,80],
+				[50,80,100,100]
+			]
+		},
+		inferences: [
+			[2,1,0],
+			[2,1,0]
+		]
+	};
+	var fl = new FuzzyLogic();
+</script>
+</body>
+</html>
