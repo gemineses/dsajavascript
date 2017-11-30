@@ -11,9 +11,14 @@
 	var canvas = document.getElementById('canvas');
 	canvas.width = 400;
 	canvas.height = 400;
+	var canvasIte = document.getElementById('canvasIte');
+	canvasIte.width = 400;
+	canvasIte.height = 100;
+	
 	var ctxx = canvasx.getContext('2d');
 	var ctxy = canvasy.getContext('2d');
 	var ctx = canvas.getContext('2d');
+	var ctxIte = canvasIte.getContext('2d');
 	
 	
 	/*
@@ -216,6 +221,15 @@
 		
 	};
 	
+	ctx.FuzzyRuler = function(caseNo){
+		switch(caseNo){
+			case 1:
+				
+			break;
+			case 2:
+			break;
+		}
+	};
 	
 	/*
 		Clean the canvas

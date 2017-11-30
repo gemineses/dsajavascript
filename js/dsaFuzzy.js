@@ -1,4 +1,5 @@
-	dsaFuzzyIte = 400;
+	//se setea en defaultParams.js
+	//dsaFuzzyIte = 400;
 	//tiene que sumar el 100%
 	
 	itePorBaja = .10;

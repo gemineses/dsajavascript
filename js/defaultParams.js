@@ -49,6 +49,8 @@ toFixedMax = 4;
 //360 directions on/off
 circleDirections = true;
 
+//fuzzy params
+dsaFuzzyIte = dsaIteration;
 
 //assing to DOM element
 /*
@@ -85,6 +87,7 @@ function updateParams(){
 		dsaDimensionalSpaceMin[i] = parseFloat(dsaDimensionalSpaceMin[i]);
 	}
 	dsaIteration = parseInt(document.getElementById("dsaIteration").value);
+	dsaFuzzyIte = parseInt(document.getElementById("dsaIteration").value);
 	dsaMDirection = document.getElementById("dsaMDirection").value;
 	dsaSpeed = parseFloat(document.getElementById("dsaSpeed").value);
 	dsaTime = document.getElementById("dsaTime").value;
