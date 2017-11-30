@@ -35,7 +35,7 @@
 				ctxx.font = "15px Arial";
 				ctxx.fillText(actual,40*i,15);
 				ctxx.moveTo(40*i,0);
-				ctxx.lineTo(40*i,40);
+				ctxx.lineTo(40*i,7);
 				ctxx.stroke();
 				actual = actual+div;
 			}
@@ -47,7 +47,7 @@
 				ctxy.font = "15px Arial";
 				ctxy.fillText(actual*-1,5,40*i);
 				ctxy.moveTo(0,40*i);
-				ctxy.lineTo(40,40*i);
+				ctxy.lineTo(15,40*i);
 				ctxy.stroke();
 				actual = actual+div;
 			}
