@@ -224,14 +224,7 @@
 	ctxIte.FuzzyRuler = function(caseNo, ite){
 		switch(caseNo){
 			case 1:
-				console.log("entrando");
-				//console.log(ite);
-				//console.log(dsaIteration);
-				
-				//ctxIte.clearRect(0, 0, canvasIte.width, canvasIte.height);
-				
 				xMove = parseInt((ite*400)/dsaIteration);
-				console.log(xMove);
 				ctxIte.moveTo(xMove,0);
 				ctxIte.lineTo(xMove,20);
 				ctxIte.stroke();

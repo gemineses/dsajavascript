@@ -4,13 +4,13 @@
 	
 	itePorBaja = .10;
 	iteCalBaja = dsaFuzzyIte * itePorBaja+itePorBaja;
-	console.log(iteCalBaja);
+	
 	itePorMedia = .30;
 	iteCalMedia = (dsaFuzzyIte * itePorMedia) + iteCalBaja; 
-	console.log(iteCalMedia);
+	
 	itePorAlta = .30;
 	iteCalAlta = (dsaFuzzyIte * itePorAlta) + iteCalMedia;
-	console.log(iteCalAlta);
+	
 	
 	
 	var fuzzyIterations = {};
@@ -33,9 +33,9 @@
 				name: "Velocidad del delfin",
 				setsName: ["Muy Lento", "Lento", "Rapido"],
 				sets: [
-					[0,0,0,50],
-					[0,50,50,100],
-					[50,100,100,100]
+					[0,0,0,40],
+					[10,50,50,90],
+					[60,100,100,100]
 				]
 			},
 			inferences: [
