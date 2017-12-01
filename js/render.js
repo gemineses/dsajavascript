@@ -221,16 +221,27 @@
 		
 	};
 	
-	ctx.FuzzyRuler = function(caseNo){
+	ctxIte.FuzzyRuler = function(caseNo){
 		switch(caseNo){
 			case 1:
-				
+				console.log("entrando");
+				console.log(ctxIte);
+				//ctxIte.clearRect(0, 0, canvasIte.width, canvasIte.height);
+				actual=parseFloat(actual.toFixed(4));
+				ctxIte.font = "15px Arial";
+				ctxIte.fillText(actual,40,15);
+				ctxIte.moveTo(40,0);
+				ctxIte.lineTo(40,7);
+				ctxIte.stroke();
 			break;
 			case 2:
 			break;
 		}
 	};
 	
+	
+	
+	ctxIte.FuzzyRuler(1);
 	/*
 		Clean the canvas
 	*/
