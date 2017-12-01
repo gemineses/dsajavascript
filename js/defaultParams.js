@@ -95,3 +95,8 @@ function updateParams(){
 	dsaMaxFitnessValue = document.getElementById("dsaMaxFitnessValue").value;
 	dsaMaximumSearchTime = document.getElementById("dsaMaximumSearchTime").value;
 };
+
+function updateEcoSpeed(ecoNewValue){
+	dsaSpeed = ecoNewValue;
+	document.getElementById("dsaSpeed").value=dsaSpeed;
+}

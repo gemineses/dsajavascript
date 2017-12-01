@@ -13,10 +13,11 @@
 	console.log(iteCalAlta);
 	
 	
+	var fuzzyIterations = {};
 	
-	setParamsOnFuzzyByIterations = function(){
-		var fuzzyIterations = {
-			crisp_input: [10, 10, 10],
+	setParamsOnFuzzyByIterations = function(inputVar){
+		fuzzyIterations = {
+			crisp_input: [inputVar],
 			variables_input: [
 				{
 					name: "Iteraciones",
@@ -42,7 +43,6 @@
 			]
 		};
 	}
-	
 	
 	
 	

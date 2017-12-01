@@ -13,7 +13,7 @@
 	canvas.height = 400;
 	var canvasIte = document.getElementById('canvasIte');
 	canvasIte.width = 400;
-	canvasIte.height = 100;
+	canvasIte.height = 30;
 	
 	var ctxx = canvasx.getContext('2d');
 	var ctxy = canvasy.getContext('2d');
@@ -221,17 +221,19 @@
 		
 	};
 	
-	ctxIte.FuzzyRuler = function(caseNo){
+	ctxIte.FuzzyRuler = function(caseNo, ite){
 		switch(caseNo){
 			case 1:
 				console.log("entrando");
-				console.log(ctxIte);
+				//console.log(ite);
+				//console.log(dsaIteration);
+				
 				//ctxIte.clearRect(0, 0, canvasIte.width, canvasIte.height);
-				actual=parseFloat(actual.toFixed(4));
-				ctxIte.font = "15px Arial";
-				ctxIte.fillText(actual,40,15);
-				ctxIte.moveTo(40,0);
-				ctxIte.lineTo(40,7);
+				
+				xMove = parseInt((ite*400)/dsaIteration);
+				console.log(xMove);
+				ctxIte.moveTo(xMove,0);
+				ctxIte.lineTo(xMove,20);
 				ctxIte.stroke();
 			break;
 			case 2:
@@ -239,9 +241,6 @@
 		}
 	};
 	
-	
-	
-	ctxIte.FuzzyRuler(1);
 	/*
 		Clean the canvas
 	*/

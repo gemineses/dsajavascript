@@ -268,6 +268,26 @@ runSlow = function(){
 	
 }
 
+
+runWFuzzyIte = function(){
+	newText();
+	createDolphins();
+	for(iRun = 0; iRun<dsaIteration; iRun++){		
+		searchPhase(function(){
+			callPhase(function(){
+				receptionPhase(function(){
+					predationPhase(function(){
+						setParamsOnFuzzyByIterations(iRun);
+						console.log(fl.getResult(fuzzyIterations));
+						updateEcoSpeed(parseFloat((fl.getResult(fuzzyIterations))*.01));
+						ctxIte.FuzzyRuler(1, iRun);
+					});
+				});
+			});
+		});
+		//searchPhase(callPhase(receptionPhase(predationPhase())));
+	}
+}
 /*
 runByPhase = function(){
 	createDolphins();
