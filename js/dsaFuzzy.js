@@ -48,9 +48,45 @@
 	
 	
 	
+		/*
+	var fuzzyIterationsError = {};
 	
-	
-	
-	
+	setParamsOnFuzzyByError = function(inputVar){
+		fuzzyIterationsError = {
+			crisp_input: [inputVar],
+			variables_input: [
+				{
+					name: "Error Relativo",
+					setsName: ["Baja", "Media", "Alta"],
+					sets: [
+						[0,0,iteCalBaja,iteCalMedia],
+						[iteCalBaja,iteCalMedia,iteCalMedia,iteCalAlta],
+						[iteCalMedia,iteCalAlta,dsaFuzzyIte,dsaFuzzyIte]
+					]
+				},{
+					name: "Diferencia del error relativo",
+					setsName: ["Baja", "Media", "Alta"],
+					sets: [
+						[0,0,iteCalBaja,iteCalMedia],
+						[iteCalBaja,iteCalMedia,iteCalMedia,iteCalAlta],
+						[iteCalMedia,iteCalAlta,dsaFuzzyIte,dsaFuzzyIte]
+					]
+				}
+			],
+			variable_output: {
+				name: "Velocidad del delfin",
+				setsName: ["Muy Lento", "Lento", "Rapido"],
+				sets: [
+					[0,0,0,40],
+					[10,50,50,90],
+					[60,100,100,100]
+				]
+			},
+			inferences: [
+				[2,1,0]
+			]
+		};
+	}
+	*/
 	
 	var fl = new FuzzyLogic();
