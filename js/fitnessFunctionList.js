@@ -13,9 +13,11 @@ fitnessFunction = function(x){
         switch(fitnessSelected){
 			case 1://f=abs(x)+cos(x);
 				sum = Math.abs(x[0].toFixed(toFixedMax))+Math.cos(x[0].toFixed(toFixedMax));
+				minimumValueOfFitnessFunction = 1;
 			break;
 			case 2://f=abs(x)+sin(x);
 				sum = Math.abs(x[0].toFixed(toFixedMax))+Math.sin(x[0].toFixed(toFixedMax));
+				minimumValueOfFitnessFunction = 0;
 			break;
             case 3://f=x(:,1).^2+x(:,2).^2;
 				if(x.length<2){
@@ -24,6 +26,7 @@ fitnessFunction = function(x){
 				}else{
 					sum = (Math.pow(x[0].toFixed(toFixedMax), 2))-(Math.pow(x[1].toFixed(toFixedMax), 2));
 				}
+				minimumValueOfFitnessFunction = 1;
             break;
 			case 4://f=100*(x(:,2).^2-x(:,1)).^2 + (1-x(:,1)).^2;
 				sum = 0;
@@ -34,6 +37,7 @@ fitnessFunction = function(x){
 				}else{
 					sum = 100 * (((Math.pow(x[1].toFixed(toFixedMax), 2))-(Math.pow(x[0].toFixed(toFixedMax), 2))) + (1-(Math.pow(x[0].toFixed(toFixedMax), 2))));
 				}
+				minimumValueOfFitnessFunction = 0;
 			break;
 			case 5://f(:,1)=sum(abs(x')-10*cos(sqrt(abs(10*x'))))';
 				sumTmpOne = [];
@@ -43,9 +47,11 @@ fitnessFunction = function(x){
 				for(iifit = 0; iifit<sumTmpOne.length; iifit++){
 					sum = sum + sumTmpOne[iifit];
 				}
+				minimumValueOfFitnessFunction = 0;
 			break;
 			case 6://f=(x.^2+x).*cos(x);
 				sum = (Math.pow(x[0], 2)+x[0])*Math.cos(x[0]);
+				minimumValueOfFitnessFunction = -100.22;
 			break;
 			case 7:
 				//f=x(:,1).*sin(4*x(:,1))+1.1*x(:,2).*sin(2*x(:,2));
@@ -54,7 +60,8 @@ fitnessFunction = function(x){
 					sum = 0;
 				}else{
 					sum = (x[0]*Math.sin(4*x[0]))+((1.1)*x[1]*Math.sin(2*x[1]));
-				}				
+				}
+				minimumValueOfFitnessFunction = -18.5547;				
 			break;
 			case 8:
 				//f=x(:,2).*sin(4*x(:,1))+1.1*x(:,1).*sin(2*x(:,2));
@@ -63,13 +70,15 @@ fitnessFunction = function(x){
 					sum = 0;
 				}else{
 					sum = (x[1]*Math.sin(4*x[0]))+((1.1)*x[0]*Math.sin(2*x[1]));
-				}				
+				}
+				minimumValueOfFitnessFunction = -18.5547;
 			break;
 			case 9:
 				alert("aun en desarrollo");
 				sum = 0;
 				//f(:,1)=x(:,1).^4+2*x(:,2).^4+randn(length(x(:,1)),1);
 				//sum = (Math.pow(x[0], 4)+2*(Math.pow(x[1], 4))+(Math.random() * 1);
+				//minimumValueOfFitnessFunction = 0; varia!!
 			break;
 			case 10:
 				//f(:,1)=20+sum(x'.^2-10*cos(2*pi*x'))'; 
@@ -81,6 +90,7 @@ fitnessFunction = function(x){
 					sum = sum + sumTmpOne[iifit];
 				}
 				sum = 20 + sum;
+				minimumValueOfFitnessFunction = 0;
 			break;
 			case 11:
 				alert("aun en desarrollo");
@@ -96,9 +106,11 @@ fitnessFunction = function(x){
 				}
 				sum = 20 + sum;*/
 				//-------------agregar prod
+				minimumValueOfFitnessFunction = 0;
 			break;
 			case 12:
 				//f(:,1)=.5+(sin(sqrt(x(:,1).^2+x(:,2).^2).^2)-.5)./(1+.1*(x(:,1).^2+x(:,2).^2));
+				minimumValueOfFitnessFunction = -0.5231;
 			break;
 			case 13:
 			break;

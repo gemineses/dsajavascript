@@ -7,6 +7,7 @@
 //vars
 dsaDolphinNumbers = 3;
 fitnessSelected="1";
+minimumValueOfFitnessFunction = 0;
 fitByDolp = [];
 
 //dim

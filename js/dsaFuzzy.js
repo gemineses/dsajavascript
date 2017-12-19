@@ -48,16 +48,16 @@
 	
 	
 	
-		/*
-	var fuzzyIterationsError = {};
 	
+	var fuzzyIterationsError = {};	
 	setParamsOnFuzzyByError = function(inputVar){
+		errorAbsoluto = minimumValueOfFitnessFunction;
 		fuzzyIterationsError = {
 			crisp_input: [inputVar],
 			variables_input: [
 				{
 					name: "Error Relativo",
-					setsName: ["Baja", "Media", "Alta"],
+					setsName: ["Bajo", "Medio", "Alto"],
 					sets: [
 						[0,0,iteCalBaja,iteCalMedia],
 						[iteCalBaja,iteCalMedia,iteCalMedia,iteCalAlta],
@@ -87,6 +87,6 @@
 			]
 		};
 	}
-	*/
+	
 	
 	var fl = new FuzzyLogic();
