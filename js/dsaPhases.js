@@ -277,6 +277,7 @@ runWFuzzyIte = function(){
 			callPhase(function(){
 				receptionPhase(function(){
 					predationPhase(function(){
+						console.log(iRun);
 						setParamsOnFuzzyByIterations(iRun);
 						//console.log(fl.getResult(fuzzyIterations));
 						updateEcoSpeed(parseFloat((fl.getResult(fuzzyIterations))*.01));

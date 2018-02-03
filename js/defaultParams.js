@@ -5,8 +5,8 @@
 */
 
 //vars
-dsaDolphinNumbers = 3;
-fitnessSelected="1";
+dsaDolphinNumbers = 10;
+fitnessSelected="5";
 minimumValueOfFitnessFunction = 0;
 fitByDolp = [];
 
@@ -15,7 +15,7 @@ noDimensions = 0;
 
 
 //dimensionalSpace
-dsaDimensionalSpaceMax = "5,5";
+dsaDimensionalSpaceMax = "512,512,512,512,512,512,512,512,512,512";
 dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
 
 //parseFloat
@@ -24,7 +24,7 @@ for(i = 0; i<dsaDimensionalSpaceMax.length; i++){
 		noDimensions = i+1;
 	}
 	
-dsaDimensionalSpaceMin = "-5,-5";
+dsaDimensionalSpaceMin = "-512,-512,-512,-512,-512,-512,-512,-512,-512,-512";
 dsaDimensionalSpaceMin = dsaDimensionalSpaceMin.split(",");
 //parseFloat
 for(i = 0; i<dsaDimensionalSpaceMin.length; i++){
@@ -33,7 +33,7 @@ for(i = 0; i<dsaDimensionalSpaceMin.length; i++){
 	}
 
 //params to initializate this algorithm
-dsaIteration = 20;
+dsaIteration = 1000;
 dsaMDirection = 3;
 dsaSpeed = 1;
 dsaTime = 3;
@@ -43,7 +43,7 @@ dolpSpeed = 2; //can be 1,2,3,4 according DSA
 
 //fitness functions config, (to add more fitness fxn go to fitnessFunctionList file)
 matlabFormat = true;
-toFixedMax = 4;
+toFixedMax = 10;
 
 
 //added params

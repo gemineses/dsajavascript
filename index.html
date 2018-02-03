@@ -45,10 +45,10 @@
 				<input placeholder="time" id="dsaTime" type="text" class="validate inputSmall" onchange="updateParams()">
 				<label class="active" for="dsaDolphinNumbers">Dolp Speed(Radius reduction coefficient)</label>
 				<input placeholder="time" id="dolpSpeed" type="text" class="validate inputSmall" onchange="updateParams()">
-				<label class="active" for="dsaDolphinNumbers">Max Fitness</label>
-				<input placeholder="maxFitnessValue" id="dsaMaxFitnessValue" type="text" class="validate inputSmall" onchange="updateParams()">
-				<label class="active" for="dsaDolphinNumbers">Max Search Time</label>
-				<input placeholder="maximumSearchTime" id="dsaMaximumSearchTime" type="text" class="validate inputSmall" onchange="updateParams()">
+				<!--<label class="active" for="dsaDolphinNumbers">Max Fitness</label>-->
+				<input placeholder="maxFitnessValue" id="dsaMaxFitnessValue" type="hidden" class="validate inputSmall" onchange="updateParams()">
+				<!--<label class="active" for="dsaDolphinNumbers">Max Search Time</label>-->
+				<input placeholder="maximumSearchTime" id="dsaMaximumSearchTime" type="hidden" class="validate inputSmall" onchange="updateParams()">
 				<a class="modal-trigger" href="#modal1">Help</a>
 			</div>
 			
@@ -98,7 +98,10 @@
 				<input placeholder="dolphinsText" id="dolphinsText" type="text" class="validate">
 				
 				<div class="row">
-					<a class="waves-effect waves-light btn" onclick="outputTextToPrint()">Print</a>
+					<a class="waves-effect waves-light btn" onclick="outputTextToPrint()">Print Dolphins</a>
+				</div>
+				<div class="row">
+					<a class="waves-effect waves-light btn" onclick="outputTextFitnessToPrint()">Print Fitness</a>
 				</div>
 				<div class="row" id="dolphinList">
 				</div>

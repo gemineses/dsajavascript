@@ -24,7 +24,7 @@ fitnessFunction = function(x){
 					alert("Se requiere mas de 1 dimension");
 					sum = 0;
 				}else{
-					sum = (Math.pow(x[0].toFixed(toFixedMax), 2))-(Math.pow(x[1].toFixed(toFixedMax), 2));
+					sum = (Math.pow(x[0].toFixed(toFixedMax), 2))+(Math.pow(x[1].toFixed(toFixedMax), 2));
 				}
 				minimumValueOfFitnessFunction = 1;
             break;
@@ -35,18 +35,21 @@ fitnessFunction = function(x){
 					alert("Se requiere mas de 1 dimension");
 					sum = 0;
 				}else{
-					sum = 100 * (((Math.pow(x[1].toFixed(toFixedMax), 2))-(Math.pow(x[0].toFixed(toFixedMax), 2))) + (1-(Math.pow(x[0].toFixed(toFixedMax), 2))));
+					sum = 100 * Math.pow(((x[1].toFixed(toFixedMax))-(Math.pow(x[0].toFixed(toFixedMax), 2))), 2);
 				}
 				minimumValueOfFitnessFunction = 0;
 			break;
 			case 5://f(:,1)=sum(abs(x')-10*cos(sqrt(abs(10*x'))))';
+				sum = 0;
 				sumTmpOne = [];
-				for(iifit = 0; iifit<x.length; iifit++){
-					sumTmpOne.push(Math.abs(x[iifit])-10*Math.cos(Math.sqrt(Math.abs(10*x[iifit]))));
+				/*for(iifit = 0; iifit<x.length; iifit++){
+					console.log((10*Math.cos(Math.sqrt(Math.abs(10*x[iifit])))));
+					sumTmpOne.push(Math.abs(x[iifit])-(10*Math.cos(Math.sqrt(Math.abs(10*x[iifit])))));
 				}
 				for(iifit = 0; iifit<sumTmpOne.length; iifit++){
 					sum = sum + sumTmpOne[iifit];
-				}
+				}*/
+				sum=Math.abs(x[1]-((10*Math.cos(Math.sqrt(Math.abs(10*x[1]))))));
 				minimumValueOfFitnessFunction = 0;
 			break;
 			case 6://f=(x.^2+x).*cos(x);
