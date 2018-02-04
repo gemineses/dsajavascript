@@ -58,42 +58,44 @@ fitnessFunction = function(x){
 			break;
 			case 7:
 				//f=x(:,1).*sin(4*x(:,1))+1.1*x(:,2).*sin(2*x(:,2));
-				if(dsaDimensionalSpaceMin[0]<1 || dsaDimensionalSpaceMin[1]<1){
+				/*if(dsaDimensionalSpaceMin[0]<1 || dsaDimensionalSpaceMin[1]<1){
 					alert("dimension minima de [1, 1]");
 					sum = 0;
 				}else{
 					sum = (x[0]*Math.sin(4*x[0]))+((1.1)*x[1]*Math.sin(2*x[1]));
-				}
+				}*/
+				sum = (x[0]*Math.sin(4*x[0]))+((1.1)*x[1]*Math.sin(2*x[1]));
 				minimumValueOfFitnessFunction = -18.5547;				
 			break;
 			case 8:
 				//f=x(:,2).*sin(4*x(:,1))+1.1*x(:,1).*sin(2*x(:,2));
-				if(dsaDimensionalSpaceMin[0]<1 || dsaDimensionalSpaceMin[1]<1){
+				/*if(dsaDimensionalSpaceMin[0]<1 || dsaDimensionalSpaceMin[1]<1){
 					alert("dimension minima de [1, 1]");
 					sum = 0;
 				}else{
 					sum = (x[1]*Math.sin(4*x[0]))+((1.1)*x[0]*Math.sin(2*x[1]));
-				}
+				}*/
+				sum = (x[1]*Math.sin(4*x[0]))+((1.1)*x[0]*Math.sin(2*x[1]));
 				minimumValueOfFitnessFunction = -18.5547;
 			break;
 			case 9:
-				alert("aun en desarrollo");
-				sum = 0;
-				//f(:,1)=x(:,1).^4+2*x(:,2).^4+randn(length(x(:,1)),1);
-				//sum = (Math.pow(x[0], 4)+2*(Math.pow(x[1], 4))+(Math.random() * 1);
-				//minimumValueOfFitnessFunction = 0; varia!!
-			break;
-			case 10:
 				//f(:,1)=20+sum(x'.^2-10*cos(2*pi*x'))'; 
 				sumTmpOne = [];
 				for(iifit = 0; iifit<x.length; iifit++){
-					sumTmpOne.push(Math.pow(x[iifit], 2)-10*(Math.cos(2*Math.PI*x[iifit])));
+					sumTmpOne.push(Math.pow(x[iifit], 2)-(10*(Math.cos(2*Math.PI*x[iifit]))));
 				}
 				for(iifit = 0; iifit<x.length; iifit++){
 					sum = sum + sumTmpOne[iifit];
 				}
-				sum = 20 + sum;
+				sum = 10 + sum;
 				minimumValueOfFitnessFunction = 0;
+			break;
+			case 10:
+				alert("aun en desarrollo");
+				sum = 0;
+				//f(:,1)=x(:,1).^4+2*x(:,2).^4+randn(length(x(:,1)),1);
+				//sum = (Math.pow(x[1], 4)+2*(Math.pow(x[1], 4))+(Math.random() * 1);
+				//minimumValueOfFitnessFunction = 0; varia!!
 			break;
 			case 11:
 				alert("aun en desarrollo");

@@ -5,7 +5,7 @@
 */
 
 //vars
-dsaDolphinNumbers = 10;
+dsaDolphinNumbers = 20;
 fitnessSelected="5";
 minimumValueOfFitnessFunction = 0;
 fitByDolp = [];
@@ -15,7 +15,7 @@ noDimensions = 0;
 
 
 //dimensionalSpace
-dsaDimensionalSpaceMax = "512,512,512,512,512,512,512,512,512,512";
+dsaDimensionalSpaceMax = "512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512,512";
 dsaDimensionalSpaceMax = dsaDimensionalSpaceMax.split(",");
 
 //parseFloat
@@ -24,7 +24,7 @@ for(i = 0; i<dsaDimensionalSpaceMax.length; i++){
 		noDimensions = i+1;
 	}
 	
-dsaDimensionalSpaceMin = "-512,-512,-512,-512,-512,-512,-512,-512,-512,-512";
+dsaDimensionalSpaceMin = "-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512,-512";
 dsaDimensionalSpaceMin = dsaDimensionalSpaceMin.split(",");
 //parseFloat
 for(i = 0; i<dsaDimensionalSpaceMin.length; i++){
